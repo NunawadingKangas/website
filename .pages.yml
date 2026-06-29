@@ -1,0 +1,368 @@
+media:
+  input: public
+  output: /
+
+content:
+  - name: homepage
+    label: Homepage hero
+    type: file
+    path: src/content/pages/home.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: metaTitle
+        label: Meta title
+        type: string
+      - name: metaDescription
+        label: Meta description
+        type: text
+        required: true
+      - name: hero
+        label: Hero banner
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: headline
+            label: Headline
+            type: string
+            description: Use a pipe character to split the second line, for example "NUNAWADING KANGAS | Basketball club".
+          - name: subheadline
+            label: Subheadline
+            type: text
+          - name: primaryCtaLabel
+            label: Primary CTA label
+            type: string
+          - name: primaryCtaHref
+            label: Primary CTA link
+            type: string
+          - name: asideLabel
+            label: Aside label
+            type: string
+          - name: backgroundWord
+            label: Background word
+            type: string
+      - name: newsSection
+        label: News section
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: kicker
+            label: Kicker
+            type: string
+          - name: limit
+            label: Number of news items
+            type: number
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: navigation
+    label: Navigation menu
+    type: file
+    path: src/content/navigation/menu.yml
+    format: yaml
+    fields:
+      - name: brand
+        label: Brand
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Link
+            type: string
+      - name: items
+        label: Menu items
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Link
+            type: string
+          - name: kicker
+            label: Drawer kicker
+            type: string
+          - name: children
+            label: Sub items
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Link
+                type: string
+
+  - name: footer
+    label: Footer
+    type: file
+    path: src/content/footer/main.yml
+    format: yaml
+    fields:
+      - name: partnerHeading
+        label: Partner heading
+        type: string
+      - name: partners
+        label: Partners
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: logo
+            label: Logo
+            type: image
+      - name: clubName
+        label: Club name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: socialLinks
+        label: Social links
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: ariaLabel
+            label: Accessible label
+            type: string
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              values: [facebook, instagram, email]
+          - name: href
+            label: Link
+            type: string
+      - name: linkGroups
+        label: Link groups
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: links
+            label: Links
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Link
+                type: string
+      - name: copyright
+        label: Copyright name
+        type: string
+        description: Enter the organization name only. The copyright symbol and current year are added automatically.
+      - name: backgroundWord
+        label: Background word
+        type: string
+
+  - name: age-groups
+    label: Age groups page
+    type: file
+    path: src/content/age-groups/main.yml
+    format: yaml
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: seasonLabel
+        label: Season label
+        type: string
+      - name: ctaLabel
+        label: CTA label
+        type: string
+      - name: ctaHref
+        label: CTA link
+        type: string
+      - name: groups
+        label: Groups
+        type: object
+        list: true
+        fields:
+          - name: code
+            label: Code
+            type: string
+          - name: name
+            label: Name
+            type: string
+          - name: dobFrom
+            label: DOB from
+            type: string
+          - name: dobTo
+            label: DOB to
+            type: string
+
+  - name: schedules
+    label: Schedules page
+    type: file
+    path: src/content/schedules/main.yml
+    format: yaml
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: metaTitle
+        label: Meta title
+        type: string
+      - name: metaDescription
+        label: Meta description
+        type: text
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: summary
+        label: Summary
+        type: text
+      - name: schedules
+        label: Schedule tables
+        type: object
+        list: true
+        fields:
+          - name: kicker
+            label: Kicker
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: ariaLabel
+            label: Accessible table label
+            type: string
+          - name: items
+            label: Rows
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: date
+                label: Date
+                type: string
+              - name: type
+                label: Row type
+                type: select
+                options:
+                  values: [round, break]
+
+  - name: child-content
+    label: Child pages
+    type: collection
+    path: src/content/child-content
+    filename:
+      template: "{primary}.md"
+      field: create
+    format: yaml-frontmatter
+    subfolders: false
+    view:
+      primary: title
+      fields: [section, title, eyebrow, order]
+      sort: [section, order, title]
+      search: [title, metaDescription, summary, section]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: metaTitle
+        label: Meta title
+        type: string
+      - name: metaDescription
+        label: Meta description
+        type: text
+        required: true
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+        required: true
+      - name: summary
+        label: Page summary
+        type: text
+        required: true
+      - name: section
+        label: Site section
+        type: select
+        required: true
+        options:
+          values: [play, club, get-involved, contact]
+      - name: slug
+        label: URL slug override
+        type: string
+        description: Leave empty to use the markdown filename as the URL slug.
+      - name: order
+        label: Sort order
+        type: number
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: news
+    label: News items
+    type: collection
+    path: src/content/news
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: create
+    format: yaml-frontmatter
+    subfolders: false
+    view:
+      primary: title
+      fields: [title, category, publishDate, author]
+      sort: [publishDate, title]
+      search: [title, excerpt, author, category]
+      default:
+        sort: publishDate
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: excerpt
+        label: Excerpt
+        type: text
+        required: true
+      - name: publishDate
+        label: Publish date
+        type: date
+        required: true
+      - name: author
+        label: Author
+        type: string
+        required: true
+      - name: category
+        label: Category
+        type: select
+        options:
+          values: [Club News, Game Report, Community, Registration, Club Announcement, Game Day, Workshop]
+      - name: featured
+        label: Featured on home page
+        type: boolean
+      - name: body
+        label: Story
+        type: rich-text
+
+settings:
+  hide: true
+  content:
+    merge: true
