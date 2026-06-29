@@ -1,0 +1,56 @@
+---
+import AngularDivider from "./design-system/AngularDivider.astro";
+import ButtonLink from "./ButtonLink.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface AgeGroup {
+  code: string;
+  name: string;
+  dobFrom: string;
+  dobTo: string;
+}
+
+interface Props {
+  title: string;
+  seasonLabel: string;
+  groups: AgeGroup[];
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+const { title, seasonLabel, groups, ctaLabel, ctaHref } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-background py-12 pb-28">
+  <div class="section-wrap relative z-10">
+    <div class="mb-20">
+      <SectionHeading title={title} kicker={seasonLabel} theme="dark" />
+    </div>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {groups.map((group) => (
+        <article class="group relative overflow-hidden border border-white/10 bg-surface-container p-6 transition-all hover:border-primary-container">
+          <span class="pointer-events-none absolute -right-4 -top-6 text-8xl font-black italic leading-none text-primary-container/10 transition-colors group-hover:text-primary-container/20">
+            {group.code}
+          </span>
+          <div class="relative z-10">
+            <h3 class="font-headline-lg mb-4 text-lg font-black uppercase text-white">{group.name}</h3>
+            <div class="grid grid-cols-2 gap-4 text-base text-zinc-300">
+              <div>
+                <span class="block text-base font-bold uppercase tracking-[0.18em] text-zinc-500">DOB From</span>
+                <span class="mt-1 block text-white">{group.dobFrom}</span>
+              </div>
+              <div>
+                <span class="block text-base font-bold uppercase tracking-[0.18em] text-zinc-500">DOB To</span>
+                <span class="mt-1 block text-white">{group.dobTo}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="mt-12 flex justify-center">
+      <ButtonLink href={ctaHref} label={ctaLabel} size="lg" />
+    </div>
+  </div>
+  <AngularDivider fill="yellow" />
+</section>

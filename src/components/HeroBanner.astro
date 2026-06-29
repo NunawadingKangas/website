@@ -1,0 +1,48 @@
+---
+import AngularDivider from "./design-system/AngularDivider.astro";
+import ButtonLink from "./ButtonLink.astro";
+
+interface Props {
+  eyebrow: string;
+  headline: string;
+  subheadline: string;
+  primaryCtaLabel: string;
+  primaryCtaHref: string;
+  asideLabel?: string;
+  backgroundWord?: string;
+}
+
+const { eyebrow, headline, subheadline, primaryCtaLabel, primaryCtaHref, asideLabel, backgroundWord = "KANGAS" } = Astro.props;
+const [mainHeadline, supportingHeadline] = headline.split("|").map((part) => part.trim());
+---
+
+<section class="relative flex min-h-[86vh] w-full items-center overflow-hidden bg-background pb-16 pt-24">
+  <div class="absolute inset-0 hero-gradient-surface"></div>
+  <div class="section-wrap relative z-10 grid grid-cols-12 items-center gap-8">
+    <div class="col-span-12 lg:col-span-8">
+      <div class="parallelogram mb-5 inline-block border border-primary-container bg-transparent px-4 py-1">
+        <span class="skew-fix block text-label-md font-black italic uppercase tracking-widest text-primary-container">{eyebrow}</span>
+      </div>
+      <h1 class="font-display-lg relative leading-[0.7] tracking-tighter text-white">
+        <span class="block text-[3.15rem] font-black italic uppercase min-[390px]:text-[3.6rem] sm:text-6xl md:text-[6.5rem]" style="line-height: 0.7;">{mainHeadline}</span>
+        {supportingHeadline && (
+          <span class="mt-2 block text-4xl font-black italic uppercase text-primary-container sm:text-5xl md:text-6xl">{supportingHeadline}</span>
+        )}
+      </h1>
+      <p class="mt-6 max-w-2xl text-base leading-7 text-zinc-300 md:text-lg">{subheadline}</p>
+      <div class="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+        <ButtonLink href={primaryCtaHref} label={primaryCtaLabel} size="lg" />
+        {asideLabel && (
+          <div class="flex items-center gap-4">
+            <div class="h-px w-16 bg-primary-container/50"></div>
+            <span class="text-sm font-label-md uppercase tracking-widest text-zinc-400">{asideLabel}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+  <div class="pointer-events-none absolute -bottom-10 -right-5 select-none text-[15rem] font-black italic text-zinc-950/50">
+    {backgroundWord}
+  </div>
+  <AngularDivider fill="light" />
+</section>

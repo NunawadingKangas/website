@@ -1,0 +1,19 @@
+---
+import { getEntry } from "astro:content";
+import PageHeader from "../../components/PageHeader.astro";
+import ScheduleGrid from "../../components/ScheduleGrid.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const page = await getEntry("schedules", "main");
+
+if (!page) {
+  throw new Error("Missing schedule content entry.");
+}
+---
+
+<BaseLayout title={page.data.metaTitle ?? page.data.title} description={page.data.metaDescription}>
+  <div class="hero-gradient-surface">
+    <PageHeader eyebrow={page.data.eyebrow} title={page.data.title} summary={page.data.summary} />
+    <ScheduleGrid schedules={page.data.schedules} />
+  </div>
+</BaseLayout>

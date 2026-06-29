@@ -1,0 +1,29 @@
+---
+import PageHeader from "./PageHeader.astro";
+import AngularDivider from "./design-system/AngularDivider.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import type { ChildPageContent } from "../lib/childPages";
+
+interface Props {
+  page: ChildPageContent;
+}
+
+const { page } = Astro.props;
+const hasBody = Astro.slots.has("default");
+---
+
+<BaseLayout title={page.metaTitle ?? page.title} description={page.metaDescription}>
+  <div class="hero-gradient-surface">
+    <PageHeader eyebrow={page.eyebrow} title={page.title} summary={page.summary} />
+    <section class={`relative bg-tertiary-fixed text-surface ${hasBody ? "pb-24 pt-4 md:pb-28 md:pt-6" : "pb-20 md:pb-24"}`}>
+      {hasBody && (
+        <div class="section-wrap">
+          <article class="bg-white p-6 shadow-sm md:p-10">
+            <slot />
+          </article>
+        </div>
+      )}
+      <AngularDivider fill="yellow" direction="reverse" from="light" />
+    </section>
+  </div>
+</BaseLayout>

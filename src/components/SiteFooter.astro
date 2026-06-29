@@ -1,0 +1,106 @@
+---
+import { withBase } from "../lib/withBase";
+import { externalLinkAttrs } from "../lib/linkAttrs";
+
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface SocialLink extends FooterLink {
+  icon: "facebook" | "instagram" | "email";
+  ariaLabel: string;
+}
+
+interface Partner {
+  name: string;
+  logo: string;
+}
+
+interface Props {
+  footer: {
+    partnerHeading: string;
+    partners: Partner[];
+    clubName: string;
+    tagline: string;
+    socialLinks: SocialLink[];
+    linkGroups: {
+      title: string;
+      links: FooterLink[];
+    }[];
+    copyright: string;
+    backgroundWord: string;
+  };
+}
+
+const { footer } = Astro.props;
+const copyrightYear = new Date().getFullYear();
+const copyrightName = footer.copyright.replace(/^©?\s*\d{4}\s*/u, "");
+const copyright = `© ${copyrightYear} ${copyrightName}`;
+---
+
+<footer class="relative w-full overflow-hidden bg-primary-container text-zinc-950">
+  <div class="border-b border-zinc-900/15 px-6 py-14 md:px-10 lg:px-16 xl:px-20">
+    <div class="mx-auto max-w-screen-2xl">
+      <h2 class="mb-10 text-center text-sm font-black italic uppercase tracking-[0.35em] text-zinc-800">{footer.partnerHeading}</h2>
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+        {footer.partners.map((partner) => (
+          <img class="official-partner-logo" src={withBase(partner.logo)} alt={partner.name} loading="lazy" decoding="async" />
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto flex w-full max-w-screen-2xl flex-col items-center px-6 py-14 text-center md:px-10 lg:px-16 xl:px-20">
+    <div class="max-w-3xl">
+      <div class="mb-6 text-3xl font-black italic text-zinc-950">{footer.clubName}</div>
+      <p class="mb-4 text-sm font-bold uppercase tracking-tight text-zinc-800">{footer.tagline}</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {footer.socialLinks.map((link) => (
+          <a
+            aria-label={link.ariaLabel}
+            class="flex h-11 w-11 items-center justify-center border border-zinc-900/20 text-zinc-800 transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:border-black focus-visible:bg-black focus-visible:text-white focus-visible:outline-none"
+            href={link.icon === "email" ? link.href : withBase(link.href)}
+            {...externalLinkAttrs(link.href)}
+          >
+            {link.icon === "facebook" && (
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06Z" />
+              </svg>
+            )}
+            {link.icon === "instagram" && (
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none"></circle>
+              </svg>
+            )}
+            {link.icon === "email" && (
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+            )}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="px-6 py-6 md:px-10 lg:px-16 xl:px-20">
+    <p class="text-center text-sm uppercase tracking-tight text-zinc-800">{copyright}</p>
+  </div>
+  <div class="pointer-events-none absolute -bottom-10 -right-5 select-none text-[12rem] font-black italic text-zinc-950/10">
+    {footer.backgroundWord}
+  </div>
+</footer>
+
+<style>
+  .official-partner-logo {
+    display: block;
+    width: auto;
+    max-width: 10rem;
+    max-height: 4.5rem;
+    object-fit: contain;
+    filter: grayscale(1) contrast(1.1) brightness(0.82);
+    mix-blend-mode: multiply;
+  }
+</style>

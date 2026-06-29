@@ -1,0 +1,26 @@
+---
+import AngularDivider from "./design-system/AngularDivider.astro";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  slantTo?: "light" | "yellow";
+}
+
+const { eyebrow, title, summary, slantTo = "light" } = Astro.props;
+const dividerFill: "yellow" | "light" = slantTo === "yellow" ? "yellow" : "light";
+---
+
+<section class="relative overflow-hidden pb-16 pt-[5rem]">
+  <div class="section-wrap py-12">
+    <div class="max-w-4xl">
+      <div class="parallelogram mb-5 inline-block border border-primary-container bg-transparent px-4 py-1">
+        <span class="skew-fix block text-sm font-black italic uppercase tracking-widest text-primary-container">{eyebrow}</span>
+      </div>
+      <h1 class="font-display-lg text-4xl font-black italic uppercase leading-none text-white sm:text-5xl md:text-6xl">{title}</h1>
+      <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-300">{summary}</p>
+    </div>
+  </div>
+  <AngularDivider fill={dividerFill} />
+</section>

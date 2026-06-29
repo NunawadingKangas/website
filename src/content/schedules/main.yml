@@ -1,0 +1,146 @@
+title: Game Days & Times
+metaTitle: Game Days & Times | Nunawading Kangas
+metaDescription: Key round dates for WNJ Monday, WNJ Friday, and Saturday junior competitions in the Winter 2026 season.
+eyebrow: Winter 2026 Season
+summary: Key round dates for WNJ Monday, WNJ Friday, and Saturday junior competitions, with holidays and finals called out for quick scanning.
+schedules:
+  - kicker: WNJ Monday
+    title: Monday Nights
+    ariaLabel: WNJ Monday winter 2026 schedule
+    items:
+      - label: "1"
+        date: 20-Apr
+      - label: "2"
+        date: 27-Apr
+      - label: "3"
+        date: 4-May
+      - label: "4"
+        date: 11-May
+      - label: "5"
+        date: 18-May
+      - label: "6"
+        date: 25-May
+      - label: "7"
+        date: 1-Jun
+      - label: King's Birthday - 8-Jun
+        type: break
+      - label: "8"
+        date: 15-Jun
+      - label: "9"
+        date: 22-Jun
+      - label: School Holidays
+        type: break
+      - label: "10"
+        date: 13-Jul
+      - label: "11"
+        date: 20-Jul
+      - label: "12"
+        date: 27-Jul
+      - label: "13"
+        date: 3-Aug
+      - label: "14"
+        date: 10-Aug
+      - label: "15"
+        date: 17-Aug
+      - label: "16"
+        date: 24-Aug
+      - label: "17"
+        date: 31-Aug
+      - label: Elim. Finals
+        date: 7-Sep
+      - label: Grand Finals
+        date: 14-Sep
+  - kicker: WNJ Friday
+    title: Friday Nights
+    ariaLabel: WNJ Friday winter 2026 schedule
+    items:
+      - label: "1"
+        date: 24-Apr
+      - label: "2"
+        date: 1-May
+      - label: "3"
+        date: 8-May
+      - label: "4"
+        date: 15-May
+      - label: "5"
+        date: 22-May
+      - label: "6"
+        date: 29-May
+      - label: "7"
+        date: 5-Jun
+      - label: "8"
+        date: 12-Jun
+      - label: "9"
+        date: 19-Jun
+      - label: "10"
+        date: 26-Jun
+      - label: School Holidays
+        type: break
+      - label: "11"
+        date: 17-Jul
+      - label: "12"
+        date: 24-Jul
+      - label: "13"
+        date: 31-Jul
+      - label: "14"
+        date: 7-Aug
+      - label: "15"
+        date: 14-Aug
+      - label: "16"
+        date: 21-Aug
+      - label: "17"
+        date: 28-Aug
+      - label: "18"
+        date: 4-Sep
+      - label: Elim. Finals
+        date: 11-Sep
+      - label: Grand Finals
+        date: 18-Sep
+  - kicker: Saturday Jnr
+    title: Saturday Juniors
+    ariaLabel: Saturday junior winter 2026 schedule
+    items:
+      - label: Anzac Day - 25-Apr
+        type: break
+      - label: "1"
+        date: 2-May
+      - label: "2"
+        date: 9-May
+      - label: "3"
+        date: 16-May
+      - label: "4"
+        date: 23-May
+      - label: "5"
+        date: 30-May
+      - label: King's Birthday - 6-Jun
+        type: break
+      - label: "6"
+        date: 13-Jun
+      - label: "7"
+        date: 20-Jun
+      - label: "8"
+        date: 27-Jun
+      - label: School Holidays
+        type: break
+      - label: "9"
+        date: 11-Jul
+      - label: "10"
+        date: 18-Jul
+      - label: "11"
+        date: 25-Jul
+      - label: "12"
+        date: 1-Aug
+      - label: "13"
+        date: 8-Aug
+      - label: "14"
+        date: 15-Aug
+      - label: "15"
+        date: 22-Aug
+      - label: "16"
+        date: 29-Aug
+      - label: "17"
+        date: 5-Sep
+      - label: Elim. Finals
+        date: 12-Sep
+      - label: Grand Finals
+        date: 19-Sep

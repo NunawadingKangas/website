@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  kicker?: string;
+  theme?: "dark" | "light";
+}
+
+const { title, kicker, theme = "dark" } = Astro.props;
+const titleClass = theme === "dark" ? "text-white" : "text-surface";
+const kickerClass = theme === "dark" ? "text-primary-container" : "text-[#765b00]";
+---
+
+<div class="text-center">
+  <h2 class={`font-display-lg inline-flex flex-col items-center gap-3 text-5xl font-black italic uppercase leading-none sm:text-6xl md:text-7xl ${titleClass}`}>
+    <span>{title}</span>
+    {kicker && <span class={`text-base font-black italic uppercase tracking-[0.3em] sm:text-base md:text-xl md:tracking-[0.5em] ${kickerClass}`}>{kicker}</span>}
+  </h2>
+</div>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  fill?: "dark" | "light" | "yellow";
+  direction?: "forward" | "reverse";
+  from?: "transparent" | "dark" | "light" | "yellow";
+}
+
+const { fill = "light", direction = "forward", from = "transparent" } = Astro.props;
+
+const fillClass = {
+  dark: "bg-background",
+  light: "bg-tertiary-fixed",
+  yellow: "bg-primary-container"
+}[fill];
+
+const fromClass = {
+  transparent: "angular-divider-transparent",
+  dark: "bg-background",
+  light: "bg-tertiary-fixed",
+  yellow: "bg-primary-container"
+}[from];
+
+const directionClass = direction === "reverse" ? "angular-divider-fill-reverse" : "angular-divider-fill";
+---
+
+<div class={`angular-divider ${fromClass}`} aria-hidden="true">
+  <div class={`${directionClass} ${fillClass}`}></div>
+</div>
+
+<style>
+  .angular-divider {
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: calc(4rem + 2px);
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .angular-divider-transparent {
+    background: transparent;
+  }
+
+  .angular-divider-fill,
+  .angular-divider-fill-reverse {
+    position: absolute;
+    inset: 0;
+  }
+
+  .angular-divider-fill {
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .angular-divider-fill-reverse {
+    clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+  }
+</style>

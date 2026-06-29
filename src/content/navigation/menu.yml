@@ -1,0 +1,42 @@
+brand:
+  label: NUNAWADING KANGAS
+  href: /
+items:
+  - label: Home
+    href: /
+  - label: Play for Kangas
+    children:
+      - label: Registration
+        href: /play/registration
+      - label: Fees & Uniforms
+        href: /play/fees-uniforms
+      - label: Game Days & Times
+        href: /play/schedules
+      - label: Training Info
+        href: /play/training
+  - label: Club Info
+    children:
+      - label: About the Club
+        href: /club/about
+      - label: Committee
+        href: /club/committee
+      - label: Policies
+        href: /club/policies
+  - label: Get Involved
+    children:
+      - label: Coaching
+        href: /get-involved/coaching
+      - label: Team Manager
+        href: /get-involved/team-manager
+      - label: Sponsorship
+        href: /get-involved/sponsorship
+  - label: Contact
+    children:
+      - label: General Enquiry
+        href: https://docs.google.com/forms/d/e/1FAIpQLScubmjIHuY0eSvsoOrcW0aBTEaXduTOxbGvtomfI_ZjmUm4cw/viewform
+      - label: Request a refund
+        href: https://docs.google.com/forms/d/e/1FAIpQLSe8iLfgBYVMA5qXOXXp6nX6nMDEAiQ_Oafrs2GgEbWXcf7e6g/viewform
+      - label: Payment invoice
+        href: https://docs.google.com/forms/d/e/1FAIpQLSd_Xn4TYM2djBM7f8mPA3kYTaV9ZtoGKx5XDap9Ctgu-i1dcQ/viewform
+      - label: Report an incident
+        href: /contact/report-an-incident

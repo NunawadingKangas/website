@@ -1,0 +1,22 @@
+---
+import ChildMarkdownPage from "../../components/ChildMarkdownPage.astro";
+import { getChildPagesForSection } from "../../lib/childPages";
+import type { ChildPageEntry } from "../../lib/childPages";
+
+export async function getStaticPaths() {
+  const pages = await getChildPagesForSection("club");
+
+  return pages.map(({ slug, entry }) => ({
+    params: { slug },
+    props: { entry }
+  }));
+}
+
+interface Props {
+  entry: ChildPageEntry;
+}
+
+const { entry } = Astro.props;
+---
+
+<ChildMarkdownPage entry={entry} />

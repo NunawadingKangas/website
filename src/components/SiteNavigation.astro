@@ -1,0 +1,370 @@
+---
+import { withBase } from "../lib/withBase";
+import { externalLinkAttrs } from "../lib/linkAttrs";
+
+interface NavChild {
+  label: string;
+  href: string;
+}
+
+interface NavItem {
+  label: string;
+  href?: string;
+  kicker?: string;
+  children?: NavChild[];
+}
+
+interface Props {
+  brand: {
+    label: string;
+    href: string;
+  };
+  items: NavItem[];
+}
+
+const { brand, items } = Astro.props;
+---
+
+<nav class="fixed top-0 z-50 w-full hero-gradient-surface backdrop-blur-sm">
+  <div class="site-header-inner">
+    <a class="font-black text-yellow-400" href={withBase(brand.href)} {...externalLinkAttrs(brand.href)}>{brand.label}</a>
+    <div class="hidden items-center gap-3 lg:flex">
+      {items.map((item) => (
+        <div class="desktop-nav-group relative">
+          {item.href ? (
+            <a class="nav-link tracking-tighter uppercase" data-label={item.label} href={withBase(item.href)} {...externalLinkAttrs(item.href)}>
+              <span>{item.label}</span>
+            </a>
+          ) : (
+            <button class="nav-link nav-parent-control tracking-tighter uppercase" data-label={item.label} type="button">
+              <span>{item.label}</span>
+            </button>
+          )}
+          {item.children && item.children.length > 0 && (
+            <div class={`desktop-subnav-shell absolute top-full pt-0 ${item.label === "Contact" ? "right-0" : "left-0"}`}>
+              <div class="desktop-subnav min-w-[220px] p-2">
+                {item.children.map((child) => (
+                  <a class="block text-base font-bold uppercase" href={withBase(child.href)} {...externalLinkAttrs(child.href)}>{child.label}</a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+    <label
+      aria-controls="mobile-drawer"
+      aria-label="Open navigation menu"
+      class="mobile-nav-button flex cursor-pointer items-center justify-center lg:hidden"
+      for="mobile-nav-toggle"
+    >
+      <span class="drawer-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </label>
+  </div>
+</nav>
+
+<label
+  class="mobile-drawer-backdrop fixed inset-0 z-40 bg-black/55 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"
+  for="mobile-nav-toggle"
+></label>
+<aside
+  class="mobile-drawer fixed inset-0 z-50 flex h-dvh w-full max-w-none flex-col overflow-y-auto bg-tertiary-fixed text-surface shadow-2xl lg:hidden"
+  id="mobile-drawer"
+>
+  <div class="site-header-inner">
+    <a class="font-black text-surface" href={withBase(brand.href)} {...externalLinkAttrs(brand.href)}>{brand.label}</a>
+    <label aria-label="Close navigation menu" class="drawer-close-button flex cursor-pointer items-center justify-center" for="mobile-nav-toggle">
+      <span class="drawer-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </label>
+  </div>
+  <div class="drawer-menu grid grid-cols-1 content-start gap-4 px-6 pb-10 pt-8 md:grid-cols-2 md:px-10 lg:px-16 xl:px-20">
+    {items.filter((item) => item.href !== "/").map((item) => (
+      item.children && item.children.length > 0 ? (
+        <div class={`drawer-card ${item.label === "Contact" ? "md:col-span-2" : ""}`}>
+          <span class="drawer-card-kicker">{item.label}</span>
+          <div class="drawer-card-links">
+            {item.children.map((child) => <a class="drawer-card-link" href={withBase(child.href)} {...externalLinkAttrs(child.href)}>{child.label}</a>)}
+          </div>
+        </div>
+      ) : (
+        <a class="drawer-card-link drawer-home-link" href={withBase(item.href)} {...externalLinkAttrs(item.href)}>{item.label}</a>
+      )
+    ))}
+  </div>
+</aside>
+
+<style>
+  .nav-link {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    min-height: 2.75rem;
+    align-items: center;
+    padding: 0 0.75rem;
+    font: inherit;
+    color: #d4d4d8;
+    font-weight: 500;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .nav-parent-control {
+    cursor: default;
+  }
+
+  .nav-link::after {
+    content: attr(data-label);
+    grid-area: 1 / 1;
+    height: 0;
+    overflow: hidden;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+    visibility: hidden;
+  }
+
+  .nav-link > span {
+    grid-area: 1 / 1;
+  }
+
+  .desktop-nav-group:hover .nav-link,
+  .desktop-nav-group:focus-within .nav-link,
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    background: #ffc700;
+    color: #171717;
+    font-weight: 700;
+    outline: none;
+  }
+
+  .desktop-subnav-shell {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.25rem) scale(0.98);
+    transition:
+      opacity 180ms ease,
+      transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .desktop-nav-group:hover .desktop-subnav-shell,
+  .desktop-nav-group:focus-within .desktop-subnav-shell {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .desktop-subnav {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: #ffc700;
+    color: #171717;
+    box-shadow:
+      0 22px 48px rgba(0, 0, 0, 0.38),
+      0 0 34px rgba(255, 199, 0, 0.24);
+  }
+
+  .desktop-subnav a {
+    padding: 0.75rem 0.9rem;
+    color: #171717;
+    transition:
+      color 160ms ease,
+      background-color 160ms ease;
+  }
+
+  .desktop-subnav a:hover,
+  .desktop-subnav a:focus-visible {
+    background: #171717;
+    color: #ffc700;
+    outline: none;
+  }
+
+  .mobile-nav-button,
+  .drawer-close-button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    transition:
+      color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .mobile-nav-button {
+    border: 0;
+    color: #ffc700;
+  }
+
+  .drawer-close-button {
+    color: #171717;
+  }
+
+  .mobile-nav-button:hover,
+  .mobile-nav-button:focus-visible,
+  .drawer-close-button:hover,
+  .drawer-close-button:focus-visible {
+    background: #ffc700;
+    color: #171717;
+    box-shadow: 0 0 26px rgba(255, 199, 0, 0.35);
+    outline: none;
+  }
+
+  .drawer-icon {
+    position: relative;
+    width: 1.55rem;
+    height: 1.15rem;
+  }
+
+  .drawer-icon span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform-origin: center;
+    transition:
+      top 220ms ease,
+      transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 160ms ease;
+  }
+
+  .drawer-icon span:nth-child(1) {
+    top: 0;
+  }
+
+  .drawer-icon span:nth-child(2) {
+    top: calc(50% - 1px);
+  }
+
+  .drawer-icon span:nth-child(3) {
+    top: calc(100% - 2px);
+  }
+
+  :global(#mobile-nav-toggle:checked) ~ nav .drawer-icon span:nth-child(1),
+  .drawer-close-button .drawer-icon span:nth-child(1) {
+    top: calc(50% - 1px);
+    transform: rotate(45deg);
+  }
+
+  :global(#mobile-nav-toggle:checked) ~ nav .drawer-icon span:nth-child(2),
+  .drawer-close-button .drawer-icon span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  :global(#mobile-nav-toggle:checked) ~ nav .drawer-icon span:nth-child(3),
+  .drawer-close-button .drawer-icon span:nth-child(3) {
+    top: calc(50% - 1px);
+    transform: rotate(-45deg);
+  }
+
+  .mobile-drawer {
+    clip-path: circle(0% at calc(100% - 3rem) 2.5rem);
+    opacity: 0;
+    overscroll-behavior: contain;
+    pointer-events: none;
+    scrollbar-width: none;
+    transition:
+      clip-path 520ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 220ms ease;
+  }
+
+  .mobile-drawer::-webkit-scrollbar {
+    display: none;
+  }
+
+  :global(body:has(#mobile-nav-toggle:checked)) {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  :global(#mobile-nav-toggle:checked) ~ .mobile-drawer {
+    clip-path: circle(150% at calc(100% - 3rem) 2.5rem);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  :global(#mobile-nav-toggle:checked) ~ .mobile-drawer-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .drawer-menu {
+    width: 100%;
+    max-width: 1536px;
+    margin-inline: auto;
+  }
+
+  .drawer-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    border: 1px solid rgba(23, 23, 23, 0.12);
+    background: rgba(255, 255, 255, 0.78);
+    padding: 1rem;
+    color: #171717;
+  }
+
+  .drawer-card-kicker {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: rgba(110, 84, 0, 0.8);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .drawer-card-links {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.2rem;
+    border-top: 1px solid rgba(23, 23, 23, 0.1);
+    padding-top: 0.55rem;
+  }
+
+  .drawer-card-link {
+    display: flex;
+    min-height: 2.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0.65rem;
+    color: rgba(23, 23, 23, 0.72);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .drawer-home-link {
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(23, 23, 23, 0.12);
+    background: rgba(255, 255, 255, 0.78);
+    min-height: 3rem;
+  }
+
+  .drawer-card-link:hover,
+  .drawer-card-link:focus-visible,
+  .drawer-home-link:hover,
+  .drawer-home-link:focus-visible {
+    background: #ffc700;
+    color: #171717;
+    outline: none;
+  }
+</style>

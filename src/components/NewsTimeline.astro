@@ -1,0 +1,84 @@
+---
+import AngularDivider from "./design-system/AngularDivider.astro";
+import ButtonLink from "./ButtonLink.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+interface NewsEntry {
+  slug: string;
+  data: {
+    title: string;
+    excerpt: string;
+    publishDate: Date;
+    author: string;
+    category: string;
+    featured: boolean;
+  };
+}
+
+interface Props {
+  entries: NewsEntry[];
+  title: string;
+  kicker: string;
+}
+
+const { entries, title, kicker } = Astro.props;
+const dateParts = (date: Date) => ({
+  day: date.toLocaleDateString("en-AU", { day: "2-digit" }),
+  month: date.toLocaleDateString("en-AU", { month: "short" }).toUpperCase(),
+  year: date.toLocaleDateString("en-AU", { year: "numeric" })
+});
+---
+
+<section class="relative bg-tertiary-fixed py-12 pb-28 text-surface">
+  <div class="section-wrap">
+    <div class="mb-12">
+      <SectionHeading title={title} kicker={kicker} theme="light" />
+    </div>
+    <div class="relative mx-auto grid max-w-6xl gap-12 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-black/15 md:gap-14 md:before:left-1/2 md:before:-translate-x-1/2">
+      {entries.map((entry, index) => {
+        const date = dateParts(entry.data.publishDate);
+        const isRight = index % 2 === 0;
+        const isFeatured = entry.data.featured;
+        return (
+          <article class="relative grid gap-4 pl-9 md:grid-cols-[1fr_64px_1fr] md:gap-6 md:pl-0">
+            {isFeatured ? (
+              <div class="absolute left-[-12px] top-[-3px] z-10 flex h-6 w-6 items-center justify-center md:left-1/2 md:-translate-x-1/2">
+                <span class="material-symbols-outlined timeline-featured-icon text-2xl leading-none">star</span>
+              </div>
+            ) : (
+              <div class="timeline-dot absolute left-[-7px] top-1 z-10 h-4 w-4 md:left-1/2 md:-translate-x-1/2 md:border-4 md:border-tertiary-fixed"></div>
+            )}
+            <div class={`${isRight ? "md:col-start-1 md:text-right" : "md:col-start-3"} md:pt-1`}>
+              <div class="inline-flex items-baseline gap-2 text-base font-bold uppercase tracking-[0.2em] text-black/70">
+                <span>{date.day}</span>
+                <span>{date.month}</span>
+                <span>{date.year}</span>
+              </div>
+            </div>
+            <div class="hidden md:col-start-2 md:block"></div>
+            <div class={`bg-white p-5 ${isFeatured ? "shadow-[0_0_0_2px_rgba(255,199,0,0.95),0_16px_40px_rgba(245,191,0,0.22)]" : "shadow-sm"} ${isRight ? "md:col-start-3" : "md:col-start-1 md:row-start-1"}`}>
+              <span class="mb-1 block text-sm font-bold uppercase tracking-widest text-[#765b00]">{entry.data.category}</span>
+              <h3 class="font-headline-lg text-[1.2rem] font-black uppercase leading-tight">{entry.data.title}</h3>
+              <span class="mt-2 block text-sm italic text-zinc-500">By {entry.data.author}</span>
+              <p class="mt-3 max-w-3xl text-sm leading-6 text-zinc-600">{entry.data.excerpt}</p>
+              <div class="mt-4 flex justify-end">
+                <ButtonLink href={`/news/${entry.slug}/`} label="Read more" ariaLabel={`Read more about ${entry.data.title}`} variant="tertiary" size="sm" />
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+    <div class="mt-10 flex justify-center">
+      <ButtonLink href="/news/" label="View all news" variant="secondary" />
+    </div>
+  </div>
+  <AngularDivider fill="dark" direction="reverse" from="light" />
+</section>
+
+<style>
+  .timeline-dot {
+    border-radius: 9999px;
+    background: #ffc700;
+  }
+</style>

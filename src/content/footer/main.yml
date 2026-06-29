@@ -1,0 +1,30 @@
+partnerHeading: Official Partners
+partners:
+  - name: Nunawading Basketball
+    logo: /img/nunawading-basketball.png
+  - name: Basketball Victoria
+    logo: /img/basketball-victoria.png
+  - name: South East Melbourne Phoenix
+    logo: /img/se-pheonix.png
+  - name: Grill'd
+    logo: /img/grilld-logo.png
+  - name: Impact
+    logo: /img/impact.png
+clubName: NUNAWADING KANGAS BASKETBALL CLUB
+tagline: Where champions begin. Play for Kangas.
+socialLinks:
+  - label: Facebook
+    ariaLabel: Facebook
+    icon: facebook
+    href: https://www.facebook.com/NunaKangas
+  - label: Instagram
+    ariaLabel: Instagram
+    icon: instagram
+    href: https://www.instagram.com/nunawadingkangasbasketballclub
+  - label: Email
+    ariaLabel: Email secretary@nunawadingkangas.com.au
+    icon: email
+    href: mailto:secretary@nunawadingkangas.com.au
+linkGroups: []
+copyright: NUNAWADING KANGAS BASKETBALL CLUB
+backgroundWord: KANGAS

@@ -1,0 +1,21 @@
+---
+import { render } from "astro:content";
+import type { ChildPageEntry } from "../lib/childPages";
+import ChildPageTemplate from "./ChildPageTemplate.astro";
+
+interface Props {
+  entry: ChildPageEntry;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const hasContent = (entry.body ?? "").trim().length > 0;
+---
+
+<ChildPageTemplate page={entry.data}>
+  {hasContent && (
+    <div class="prose-content">
+      <Content />
+    </div>
+  )}
+</ChildPageTemplate>

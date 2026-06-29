@@ -1,0 +1,112 @@
+---
+import AngularDivider from "./design-system/AngularDivider.astro";
+
+interface ScheduleItem {
+  label: string;
+  date?: string;
+  type?: "round" | "break";
+}
+
+interface Schedule {
+  kicker: string;
+  title: string;
+  ariaLabel: string;
+  items: ScheduleItem[];
+}
+
+interface Props {
+  schedules: Schedule[];
+}
+
+const { schedules } = Astro.props;
+---
+
+<section class="relative bg-tertiary-fixed py-10 pb-24 text-surface md:py-12 md:pb-28">
+  <div class="section-wrap">
+    <div class="grid gap-6 lg:grid-cols-3">
+      {schedules.map((schedule) => (
+        <section class="schedule-card">
+          <div class="border-b border-black/10 p-5">
+            <p class="text-xs font-black uppercase tracking-[0.22em] text-[#765b00]">{schedule.kicker}</p>
+            <h2 class="mt-1 text-2xl font-black italic uppercase text-zinc-950">{schedule.title}</h2>
+          </div>
+          <table aria-label={schedule.ariaLabel}>
+            <thead>
+              <tr><th>Round</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+              {schedule.items.map((item) => (
+                item.type === "break" ? (
+                  <tr class="season-break"><td colspan="2">{item.label}</td></tr>
+                ) : (
+                  <tr><td class="round-label">{item.label}</td><td class="date-label">{item.date}</td></tr>
+                )
+              ))}
+            </tbody>
+          </table>
+        </section>
+      ))}
+    </div>
+  </div>
+  <AngularDivider fill="yellow" direction="reverse" from="light" />
+</section>
+
+<style>
+  .schedule-card {
+    overflow: hidden;
+    border: 1px solid rgba(23, 23, 23, 0.12);
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(23, 23, 23, 0.08);
+  }
+
+  .schedule-card table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .schedule-card th,
+  .schedule-card td {
+    border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+
+  .schedule-card tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .schedule-card th {
+    background: rgba(255, 199, 0, 0.95);
+    color: #171717;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .schedule-card td {
+    color: #303030;
+    font-size: 0.95rem;
+  }
+
+  .round-label {
+    color: #171717;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .date-label {
+    color: #5f5542;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .season-break td {
+    background: rgba(255, 199, 0, 0.16);
+    color: #6e5400;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+</style>

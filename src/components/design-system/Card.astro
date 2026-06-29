@@ -1,0 +1,12 @@
+---
+interface Props {
+  tone?: "dark" | "light";
+}
+
+const { tone = "dark" } = Astro.props;
+const toneClass = tone === "dark" ? "border-white/10 bg-surface-container text-white" : "border-black/10 bg-white text-zinc-950";
+---
+
+<article class={`border p-6 shadow-sm ${toneClass}`}>
+  <slot />
+</article>

@@ -1,0 +1,125 @@
+---
+import { getEntry, render } from "astro:content";
+import { getChildPage } from "../../lib/childPages";
+import ChildPageTemplate from "../../components/ChildPageTemplate.astro";
+
+const childPage = await getChildPage("play", "registration");
+const ageGroups = await getEntry("age-groups", "main");
+
+if (!childPage) {
+  throw new Error("Missing registration content entry.");
+}
+
+if (!ageGroups) {
+  throw new Error("Missing age groups content entry.");
+}
+
+const page = childPage.page;
+const { Content } = await render(childPage.entry);
+---
+
+<ChildPageTemplate page={page}>
+  <div class="prose-content">
+    <Content />
+  </div>
+  <div class="registration-age-groups mt-8" aria-label={`${ageGroups.data.seasonLabel} age groups`}>
+    {ageGroups.data.groups.map((group) => (
+      <article class="registration-age-group">
+        <div>
+          <span class="registration-age-group-code">{group.code}</span>
+          <h3>{group.name}</h3>
+        </div>
+        <dl>
+          <div>
+            <dt>DOB From</dt>
+            <dd>{group.dobFrom}</dd>
+          </div>
+          <div>
+            <dt>DOB To</dt>
+            <dd>{group.dobTo}</dd>
+          </div>
+        </dl>
+      </article>
+    ))}
+  </div>
+</ChildPageTemplate>
+
+<style>
+  .registration-age-groups {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .registration-age-group {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #1f1f1f;
+    padding: 1.5rem;
+    box-shadow: 0 16px 42px rgba(23, 23, 23, 0.12);
+  }
+
+  .registration-age-group-code {
+    position: absolute;
+    top: -1.5rem;
+    right: -1rem;
+    display: block;
+    color: rgba(255, 199, 0, 0.1);
+    font-size: 6rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    pointer-events: none;
+    text-transform: uppercase;
+  }
+
+  .registration-age-group h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 900;
+    line-height: 1.75rem;
+    text-transform: uppercase;
+  }
+
+  .registration-age-group dl {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .registration-age-group dt {
+    color: #71717a;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .registration-age-group dd {
+    margin: 0.15rem 0 0;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .registration-age-groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .registration-age-groups {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
