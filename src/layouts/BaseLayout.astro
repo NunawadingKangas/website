@@ -29,8 +29,9 @@ const navigationItems = await Promise.all(
     const generatedChildren = item.childrenFrom ? await getSectionNavigationItems(item.childrenFrom) : [];
     const staticChildren = item.children ?? [];
     const children = [...generatedChildren, ...staticChildren]
-      .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || a.label.localeCompare(b.label))
-      .map(({ label, href }) => ({ label, href }));
+      .map((child, index) => ({ child, index }))
+      .sort((a, b) => (a.child.order ?? 999) - (b.child.order ?? 999) || a.index - b.index)
+      .map(({ child }) => ({ label: child.label, href: child.href }));
 
     return {
       label: item.label,

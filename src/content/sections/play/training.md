@@ -5,7 +5,7 @@ metaDescription: Training information for Nunawading Kangas players and families
 eyebrow: Play for Kangas
 summary: Training information for Nunawading Kangas players and families.
 section: play
-order: 3
+order: 4
 ---
 
 ## Where do we play and train?

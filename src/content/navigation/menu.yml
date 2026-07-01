@@ -15,4 +15,12 @@ items:
   - label: Get Involved
     childrenFrom: get-involved
   - label: Contact
-    childrenFrom: contact
+    children:
+      - label: General Inquiry
+        href: https://docs.google.com/forms/d/e/1FAIpQLScubmjIHuY0eSvsoOrcW0aBTEaXduTOxbGvtomfI_ZjmUm4cw/viewform
+      - label: Payment Invoice
+        href: https://docs.google.com/forms/d/e/1FAIpQLSd_Xn4TYM2djBM7f8mPA3kYTaV9ZtoGKx5XDap9Ctgu-i1dcQ/viewform
+      - label: Request Refund
+        href: https://docs.google.com/forms/d/e/1FAIpQLSe8iLfgBYVMA5qXOXXp6nX6nMDEAiQ_Oafrs2GgEbWXcf7e6g/viewform
+      - label: Report an Incident
+        href: https://www.nunawadingkangas.com.au/incident/
