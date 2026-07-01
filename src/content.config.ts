@@ -5,6 +5,12 @@ const linkSchema = z.object({
   href: z.string()
 });
 
+const navigationChildSchema = linkSchema.extend({
+  order: z.number().optional()
+});
+
+const sectionSchema = z.enum(["play", "club", "get-involved", "contact"]);
+
 const pages = defineCollection({
   type: "content",
   schema: z.object({
@@ -49,7 +55,8 @@ const navigation = defineCollection({
         label: z.string(),
         href: z.string().optional(),
         kicker: z.string().optional(),
-        children: z.array(linkSchema).optional()
+        childrenFrom: sectionSchema.optional(),
+        children: z.array(navigationChildSchema).optional()
       })
     )
   })
@@ -127,7 +134,7 @@ const schedules = defineCollection({
   })
 });
 
-const childContent = defineCollection({
+const sections = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
@@ -135,8 +142,10 @@ const childContent = defineCollection({
     metaDescription: z.string(),
     eyebrow: z.string(),
     summary: z.string(),
-    section: z.enum(["play", "club", "get-involved", "contact"]),
+    section: sectionSchema,
     slug: z.string().optional(),
+    navLabel: z.string().optional(),
+    navHref: z.string().optional(),
     order: z.number().optional()
   })
 });
@@ -148,5 +157,5 @@ export const collections = {
   footer,
   "age-groups": ageGroups,
   schedules,
-  "child-content": childContent
+  "sections": sections
 };

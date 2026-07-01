@@ -1,11 +1,11 @@
 ---
-import ChildMarkdownPage from "../../components/ChildMarkdownPage.astro";
-import { getChildPagesForSection } from "../../lib/childPages";
-import type { ChildPageEntry } from "../../lib/childPages";
+import SectionMarkdownPage from "../../components/SectionMarkdownPage.astro";
+import { getSectionPagesForSection } from "../../lib/sectionPages";
+import type { SectionPageEntry } from "../../lib/sectionPages";
 
 export async function getStaticPaths() {
   const customPlaySlugs = ["registration"];
-  const pages = await getChildPagesForSection("play", { exclude: customPlaySlugs });
+  const pages = await getSectionPagesForSection("play", { exclude: customPlaySlugs });
 
   return pages.map(({ slug, entry }) => ({
     params: { slug },
@@ -14,10 +14,10 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  entry: ChildPageEntry;
+  entry: SectionPageEntry;
 }
 
 const { entry } = Astro.props;
 ---
 
-<ChildMarkdownPage entry={entry} />
+<SectionMarkdownPage entry={entry} />

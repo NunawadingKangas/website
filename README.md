@@ -30,6 +30,7 @@ http://localhost:4321
 ## Content structure
 
 - `src/content/pages/home.md` powers the homepage hero and body content.
+- `src/content/sections/*/*.md` powers section pages grouped by Play, Club, Get involved, and Contact.
 - `src/content/news/*.md` powers the club news listing and article pages.
 - `src/content.config.ts` defines the Astro collection schemas.
 
@@ -38,6 +39,7 @@ http://localhost:4321
 Pages CMS reads the repository root `.pages.yml` file. This boilerplate configures:
 
 - the homepage Markdown entry as an editable page collection
+- section page collections grouped by site area
 - the news Markdown files as an editable collection
 - uploaded media in `public/uploads`
 

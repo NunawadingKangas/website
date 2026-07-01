@@ -2,10 +2,10 @@
 import PageHeader from "./PageHeader.astro";
 import AngularDivider from "./design-system/AngularDivider.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import type { ChildPageContent } from "../lib/childPages";
+import type { SectionPageContent } from "../lib/sectionPages";
 
 interface Props {
-  page: ChildPageContent;
+  page: SectionPageContent;
 }
 
 const { page } = Astro.props;

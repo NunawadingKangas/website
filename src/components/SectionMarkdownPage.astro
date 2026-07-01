@@ -1,10 +1,10 @@
 ---
 import { render } from "astro:content";
-import type { ChildPageEntry } from "../lib/childPages";
-import ChildPageTemplate from "./ChildPageTemplate.astro";
+import type { SectionPageEntry } from "../lib/sectionPages";
+import SectionPageTemplate from "./SectionPageTemplate.astro";
 
 interface Props {
-  entry: ChildPageEntry;
+  entry: SectionPageEntry;
 }
 
 const { entry } = Astro.props;
@@ -12,10 +12,10 @@ const { Content } = await render(entry);
 const hasContent = (entry.body ?? "").trim().length > 0;
 ---
 
-<ChildPageTemplate page={entry.data}>
+<SectionPageTemplate page={entry.data}>
   {hasContent && (
     <div class="prose-content">
       <Content />
     </div>
   )}
-</ChildPageTemplate>
+</SectionPageTemplate>

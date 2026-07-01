@@ -1,12 +1,12 @@
 ---
 import { getEntry, render } from "astro:content";
-import { getChildPage } from "../../lib/childPages";
-import ChildPageTemplate from "../../components/ChildPageTemplate.astro";
+import { getSectionPage } from "../../lib/sectionPages";
+import SectionPageTemplate from "../../components/SectionPageTemplate.astro";
 
-const childPage = await getChildPage("play", "registration");
+const sectionPage = await getSectionPage("play", "registration");
 const ageGroups = await getEntry("age-groups", "main");
 
-if (!childPage) {
+if (!sectionPage) {
   throw new Error("Missing registration content entry.");
 }
 
@@ -14,11 +14,11 @@ if (!ageGroups) {
   throw new Error("Missing age groups content entry.");
 }
 
-const page = childPage.page;
-const { Content } = await render(childPage.entry);
+const page = sectionPage.page;
+const { Content } = await render(sectionPage.entry);
 ---
 
-<ChildPageTemplate page={page}>
+<SectionPageTemplate page={page}>
   <div class="prose-content">
     <Content />
   </div>
@@ -42,7 +42,7 @@ const { Content } = await render(childPage.entry);
       </article>
     ))}
   </div>
-</ChildPageTemplate>
+</SectionPageTemplate>
 
 <style>
   .registration-age-groups {

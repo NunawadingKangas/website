@@ -93,8 +93,13 @@ content:
           - name: kicker
             label: Drawer kicker
             type: string
+          - name: childrenFrom
+            label: Pull section pages from section
+            type: select
+            options:
+              values: [play, club, get-involved, contact]
           - name: children
-            label: Sub items
+            label: Static sub items
             type: object
             list: true
             fields:
@@ -104,6 +109,9 @@ content:
               - name: href
                 label: Link
                 type: string
+              - name: order
+                label: Sort order
+                type: number
 
   - name: footer
     label: Footer
@@ -265,10 +273,10 @@ content:
                 options:
                   values: [round, break]
 
-  - name: child-content
-    label: Child pages
+  - name: sections-play
+    label: Play pages
     type: collection
-    path: src/content/child-content
+    path: src/content/sections/play
     filename:
       template: "{primary}.md"
       field: create
@@ -276,9 +284,9 @@ content:
     subfolders: false
     view:
       primary: title
-      fields: [section, title, eyebrow, order]
-      sort: [section, order, title]
-      search: [title, metaDescription, summary, section]
+      fields: [title, eyebrow, order]
+      sort: [order, title]
+      search: [title, metaDescription, summary]
     fields:
       - name: title
         label: Title
@@ -304,11 +312,188 @@ content:
         type: select
         required: true
         options:
-          values: [play, club, get-involved, contact]
+          values: [play]
       - name: slug
         label: URL slug override
         type: string
         description: Leave empty to use the markdown filename as the URL slug.
+      - name: navLabel
+        label: Navigation label override
+        type: string
+      - name: navHref
+        label: Navigation link override
+        type: string
+      - name: order
+        label: Sort order
+        type: number
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: sections-club
+    label: Club info pages
+    type: collection
+    path: src/content/sections/club
+    filename:
+      template: "{primary}.md"
+      field: create
+    format: yaml-frontmatter
+    subfolders: false
+    view:
+      primary: title
+      fields: [title, eyebrow, order]
+      sort: [order, title]
+      search: [title, metaDescription, summary]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: metaTitle
+        label: Meta title
+        type: string
+      - name: metaDescription
+        label: Meta description
+        type: text
+        required: true
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+        required: true
+      - name: summary
+        label: Page summary
+        type: text
+        required: true
+      - name: section
+        label: Site section
+        type: select
+        required: true
+        options:
+          values: [club]
+      - name: slug
+        label: URL slug override
+        type: string
+        description: Leave empty to use the markdown filename as the URL slug.
+      - name: navLabel
+        label: Navigation label override
+        type: string
+      - name: navHref
+        label: Navigation link override
+        type: string
+      - name: order
+        label: Sort order
+        type: number
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: sections-get-involved
+    label: Get involved pages
+    type: collection
+    path: src/content/sections/get-involved
+    filename:
+      template: "{primary}.md"
+      field: create
+    format: yaml-frontmatter
+    subfolders: false
+    view:
+      primary: title
+      fields: [title, eyebrow, order]
+      sort: [order, title]
+      search: [title, metaDescription, summary]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: metaTitle
+        label: Meta title
+        type: string
+      - name: metaDescription
+        label: Meta description
+        type: text
+        required: true
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+        required: true
+      - name: summary
+        label: Page summary
+        type: text
+        required: true
+      - name: section
+        label: Site section
+        type: select
+        required: true
+        options:
+          values: [get-involved]
+      - name: slug
+        label: URL slug override
+        type: string
+        description: Leave empty to use the markdown filename as the URL slug.
+      - name: navLabel
+        label: Navigation label override
+        type: string
+      - name: navHref
+        label: Navigation link override
+        type: string
+      - name: order
+        label: Sort order
+        type: number
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: sections-contact
+    label: Contact pages
+    type: collection
+    path: src/content/sections/contact
+    filename:
+      template: "{primary}.md"
+      field: create
+    format: yaml-frontmatter
+    subfolders: false
+    view:
+      primary: title
+      fields: [title, eyebrow, order]
+      sort: [order, title]
+      search: [title, metaDescription, summary]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: metaTitle
+        label: Meta title
+        type: string
+      - name: metaDescription
+        label: Meta description
+        type: text
+        required: true
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+        required: true
+      - name: summary
+        label: Page summary
+        type: text
+        required: true
+      - name: section
+        label: Site section
+        type: select
+        required: true
+        options:
+          values: [contact]
+      - name: slug
+        label: URL slug override
+        type: string
+        description: Leave empty to use the markdown filename as the URL slug.
+      - name: navLabel
+        label: Navigation label override
+        type: string
+      - name: navHref
+        label: Navigation link override
+        type: string
       - name: order
         label: Sort order
         type: number

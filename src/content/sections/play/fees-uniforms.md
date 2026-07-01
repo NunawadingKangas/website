@@ -16,8 +16,8 @@ Once the official registration period is over, a late fee of $50 will apply to a
 
 | Fee | Amount |
 | --- | --- |
-| Nunawading Kangas Registration Fee* | $55* |
-| Nunawading Kangas Training Fee* | $105* |
+| Registration Fee* | $55* |
+| Training Fee* | $105* |
 | Player contribution to MEBA/GEBC Association Team Sheet Fees | $240 (Monday or Friday) or $215 (Saturday) |
 
 ### Other fees payable at registration
@@ -61,7 +61,7 @@ We are able to accept Get Active Kids Vouchers through our association with Bask
 
 To be eligible players must be 0-18 years old named on a Health Care Card or Pension Concession Card and Medicare Card. Please use Baskeball Victoria (provider number 2951096) as the provider in your voucher application.
 
-For more details on this program please go to [https://www.getactive.vic.gov.au/vouchers/apply-for-vouchers/](https://www.getactive.vic.gov.au/vouchers/apply-for-vouchers/)
+For more details on this program please go to [apply for vouchers](https://www.getactive.vic.gov.au/vouchers/apply-for-vouchers/)
 
 ## Uniforms
 

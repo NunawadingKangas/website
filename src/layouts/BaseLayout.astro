@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteNavigation from "../components/SiteNavigation.astro";
+import { getSectionNavigationItems } from "../lib/sectionPages";
 import { withBase } from "../lib/withBase";
 import "../styles/template-fallback.css";
 
@@ -22,6 +23,23 @@ if (!navigation) {
 if (!footer) {
   throw new Error("Missing footer content entry.");
 }
+
+const navigationItems = await Promise.all(
+  navigation.data.items.map(async (item) => {
+    const generatedChildren = item.childrenFrom ? await getSectionNavigationItems(item.childrenFrom) : [];
+    const staticChildren = item.children ?? [];
+    const children = [...generatedChildren, ...staticChildren]
+      .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || a.label.localeCompare(b.label))
+      .map(({ label, href }) => ({ label, href }));
+
+    return {
+      label: item.label,
+      href: item.href,
+      kicker: item.kicker,
+      children: children.length > 0 ? children : undefined
+    };
+  })
+);
 ---
 
 <!doctype html>
@@ -122,7 +140,7 @@ if (!footer) {
   </head>
   <body class={`bg-background text-on-surface font-body-lg ${bodyClass}`}>
     <input class="hidden" id="mobile-nav-toggle" type="checkbox" />
-    <SiteNavigation brand={navigation.data.brand} items={navigation.data.items} />
+    <SiteNavigation brand={navigation.data.brand} items={navigationItems} />
     <main>
       <slot />
     </main>
@@ -367,8 +385,8 @@ if (!footer) {
   }
 
   .prose-content th {
-    background: #e2e2e2;
-    color: #171717;
+    background: #765b00;
+    color: #ffffff;
     font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.14em;
@@ -382,7 +400,9 @@ if (!footer) {
   @media (max-width: 767px) {
     .prose-content table {
       display: block;
+      width: calc(100% + 3rem);
       min-width: 0;
+      margin-inline: -1.5rem;
       border-collapse: separate;
       border-spacing: 0;
     }
@@ -393,11 +413,13 @@ if (!footer) {
 
     .prose-content tbody {
       display: grid;
+      width: 100%;
       gap: 1rem;
     }
 
     .prose-content tr {
       display: block;
+      width: 100%;
       overflow: hidden;
       border: 1px solid rgba(23, 23, 23, 0.12);
       background: #ffffff;
@@ -412,9 +434,11 @@ if (!footer) {
     }
 
     .prose-content td:first-child {
-      background: #e2e2e2;
-      color: #171717;
+      background: #765b00;
+      color: #ffffff;
+      font-size: 0.78rem;
       font-weight: 900;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 

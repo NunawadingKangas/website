@@ -28,4 +28,4 @@ If you've missed registration, you can still [contact us using this link](https:
 
 ## Age groups
 
-Players would usually play in the appropriate age group based on their dob - see the tables below (they may take a second to load) to identify your age group. It's unusual to play out of your age group and you should discuss this with the Age Group Coordinator before you register. Please note that positions in an older grade are subject to availabilty and if numbers do not allow this, the Club may need to place players in their correct age group.
+Players would usually play in the appropriate age group based on their dob - see the tables below to identify your age group. It's unusual to play out of your age group and you should discuss this with the Age Group Coordinator before you register. Please note that positions in an older grade are subject to availabilty and if numbers do not allow this, the Club may need to place players in their correct age group.
