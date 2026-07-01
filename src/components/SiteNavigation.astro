@@ -23,11 +23,15 @@ interface Props {
 }
 
 const { brand, items } = Astro.props;
+const headerLogoSrc = withBase("/img/logo-dark.png");
+const drawerLogoSrc = withBase("/img/logo-light.png");
 ---
 
 <nav class="fixed top-0 z-50 w-full hero-gradient-surface backdrop-blur-sm">
   <div class="site-header-inner">
-    <a class="font-black text-yellow-400" href={withBase(brand.href)} {...externalLinkAttrs(brand.href)}>{brand.label}</a>
+    <a class="brand-logo-link" href={withBase(brand.href)} {...externalLinkAttrs(brand.href)}>
+      <img class="brand-logo-image" src={headerLogoSrc} alt={brand.label} width="950" height="523" decoding="async" />
+    </a>
     <div class="hidden items-center gap-3 lg:flex">
       {items.map((item) => (
         <div class="desktop-nav-group relative">
@@ -72,7 +76,9 @@ const { brand, items } = Astro.props;
   id="mobile-drawer"
 >
   <div class="site-header-inner">
-    <a class="font-black text-surface" href={withBase(brand.href)} {...externalLinkAttrs(brand.href)}>{brand.label}</a>
+    <a class="brand-logo-link" href={withBase(brand.href)} {...externalLinkAttrs(brand.href)}>
+      <img class="brand-logo-image" src={drawerLogoSrc} alt={brand.label} width="950" height="523" decoding="async" />
+    </a>
     <label aria-label="Close navigation menu" class="drawer-close-button flex cursor-pointer items-center justify-center" for="mobile-nav-toggle">
       <span class="drawer-icon" aria-hidden="true"><span></span><span></span><span></span></span>
     </label>
@@ -94,6 +100,26 @@ const { brand, items } = Astro.props;
 </aside>
 
 <style>
+  .brand-logo-link {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    width: min(8.25rem, 42vw);
+    height: 3.25rem;
+  }
+
+  .brand-logo-link:focus-visible {
+    outline: 2px solid #ffc700;
+    outline-offset: 0.35rem;
+  }
+
+  .brand-logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
   .nav-link {
     appearance: none;
     background: transparent;
