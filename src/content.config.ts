@@ -5,6 +5,12 @@ const linkSchema = z.object({
   href: z.string()
 });
 
+const logoLinkSchema = z.object({
+  name: z.string(),
+  logo: z.string(),
+  href: z.string()
+});
+
 const navigationChildSchema = linkSchema.extend({
   order: z.number().optional()
 });
@@ -66,12 +72,9 @@ const footer = defineCollection({
   type: "data",
   schema: z.object({
     partnerHeading: z.string(),
-    partners: z.array(
-      z.object({
-        name: z.string(),
-        logo: z.string()
-      })
-    ),
+    partners: z.array(logoLinkSchema),
+    weSupportHeading: z.string(),
+    weSupport: z.array(logoLinkSchema),
     clubName: z.string(),
     tagline: z.string(),
     socialLinks: z.array(
@@ -86,6 +89,7 @@ const footer = defineCollection({
         links: z.array(linkSchema)
       })
     ),
+    legalDetails: z.array(z.string()),
     copyright: z.string(),
     backgroundWord: z.string()
   })
@@ -150,6 +154,17 @@ const sections = defineCollection({
   })
 });
 
+const teamManager = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    metaTitle: z.string().optional(),
+    metaDescription: z.string(),
+    summary: z.string(),
+    order: z.number()
+  })
+});
+
 export const collections = {
   pages,
   news,
@@ -157,5 +172,6 @@ export const collections = {
   footer,
   "age-groups": ageGroups,
   schedules,
-  "sections": sections
+  "sections": sections,
+  "team-manager": teamManager
 };

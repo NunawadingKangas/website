@@ -1,0 +1,21 @@
+---
+import { render } from "astro:content";
+import type { SectionPageEntry } from "../lib/sectionPages";
+import SectionPageTemplate from "./SectionPageTemplate.astro";
+import TeamManagerNav from "./TeamManagerNav.astro";
+
+interface Props {
+  entry: SectionPageEntry;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<SectionPageTemplate page={entry.data}>
+  <TeamManagerNav />
+
+  <div class="prose-content">
+    <Content />
+  </div>
+</SectionPageTemplate>

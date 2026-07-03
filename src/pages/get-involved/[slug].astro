@@ -1,5 +1,6 @@
 ---
 import SectionMarkdownPage from "../../components/SectionMarkdownPage.astro";
+import TeamManagerLanding from "../../components/TeamManagerLanding.astro";
 import { getSectionPagesForSection } from "../../lib/sectionPages";
 import type { SectionPageEntry } from "../../lib/sectionPages";
 
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
+const isTeamManagerLanding = entry.id === "get-involved/team-manager.md";
 ---
 
-<SectionMarkdownPage entry={entry} />
+{isTeamManagerLanding ? <TeamManagerLanding entry={entry} /> : <SectionMarkdownPage entry={entry} />}

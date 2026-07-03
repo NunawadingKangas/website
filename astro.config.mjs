@@ -4,6 +4,10 @@ function isExternalHref(href) {
   return /^https?:\/\//i.test(href);
 }
 
+function isDownloadHref(href) {
+  return /\.(?:pdf|docx?|xlsx?|csv|pptx?)(?:[?#].*)?$/i.test(href);
+}
+
 function visitElements(tree, callback) {
   function visit(node) {
     if (node?.type === "element") {
@@ -18,13 +22,13 @@ function visitElements(tree, callback) {
   visit(tree);
 }
 
-function rehypeExternalLinks() {
+function rehypeNewTabLinks() {
   return (tree) => {
     visitElements(tree, (node) => {
       if (node.tagName === "a") {
         const href = node.properties?.href;
 
-        if (typeof href === "string" && isExternalHref(href)) {
+        if (typeof href === "string" && (isExternalHref(href) || isDownloadHref(href))) {
           node.properties = {
             ...node.properties,
             target: "_blank",
@@ -71,6 +75,6 @@ export default defineConfig({
   site: `https://${owner}.github.io`,
   base,
   markdown: {
-    rehypePlugins: [rehypeExternalLinks, [rehypeBasePaths, base]]
+    rehypePlugins: [rehypeNewTabLinks, [rehypeBasePaths, base]]
   }
 });

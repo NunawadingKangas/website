@@ -2,14 +2,30 @@ partnerHeading: Official Partners
 partners:
   - name: Nunawading Basketball
     logo: /img/nunawading-basketball.png
+    href: https://www.nunawadingbasketball.com.au/
   - name: Basketball Victoria
     logo: /img/basketball-victoria.png
+    href: https://www.basketballvictoria.com.au/
   - name: South East Melbourne Phoenix
     logo: /img/se-pheonix.png
+    href: https://www.semphoenix.com.au/
   - name: Grill'd
     logo: /img/grilld-logo.png
+    href: https://www.grilld.com.au/
   - name: Impact
     logo: /img/impact.png
+    href: https://www.impactsports.com.au/club/kangas/
+  - name: Boost
+    logo: /img/boost-logo.png
+    href: https://www.boostjuice.com.au/
+weSupportHeading: We Support
+weSupport:
+  - name: Play by the Rules
+    logo: /img/playbytherules.png
+    href: https://www.playbytherules.net.au/
+  - name: Good Sports
+    logo: /img/goodsports.svg
+    href: https://www.goodsports.com.au/
 clubName: NUNAWADING KANGAS BASKETBALL CLUB
 tagline: Where champions begin. Play for Kangas.
 socialLinks:
@@ -26,5 +42,9 @@ socialLinks:
     icon: email
     href: mailto:secretary@nunawadingkangas.com.au
 linkGroups: []
+legalDetails:
+  - Incorporated Association A0012861T
+  - ABN 18 183 701 345
+  - PO Box 184 Forest Hill VIC 3131
 copyright: NUNAWADING KANGAS BASKETBALL CLUB
 backgroundWord: KANGAS
