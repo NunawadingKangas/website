@@ -35,6 +35,6 @@ jobs:
       - name: Publish dist to gh-pages
         uses: peaceiris/actions-gh-pages@v4.1.0
         with:
-          personal_token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./dist
           publish_branch: gh-pages
