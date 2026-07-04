@@ -273,6 +273,159 @@ content:
                 options:
                   values: [round, break]
 
+  - name: registration
+    label: Registration page
+    type: file
+    path: src/content/registration/main.yml
+    format: yaml
+    fields:
+      - name: missedRegistration
+        label: Missed registration panel
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: summary
+            label: Summary
+            type: text
+          - name: ctaLabel
+            label: CTA label
+            type: string
+          - name: ctaHref
+            label: CTA link
+            type: string
+      - name: currentSeason
+        label: Current season
+        type: object
+        fields:
+          - name: id
+            label: Season ID
+            type: string
+          - name: status
+            label: Status
+            type: select
+            options:
+              values: [closed, soon-to-open, open]
+          - name: statusLabel
+            label: Status label
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: summary
+            label: Summary
+            type: text
+          - name: closedCta
+            label: Closed-season CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Link
+                type: string
+          - name: links
+            label: Registration links
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Link
+                type: string
+              - name: gameDays
+                label: Game days
+                type: string
+              - name: ageGroups
+                label: Age groups
+                type: string
+          - name: ageGroups
+            label: Age groups
+            type: object
+            list: true
+            fields:
+              - name: code
+                label: Code
+                type: string
+              - name: name
+                label: Name
+                type: string
+              - name: dobFrom
+                label: DOB from
+                type: string
+              - name: dobTo
+                label: DOB to
+                type: string
+      - name: upcomingSeason
+        label: Upcoming season
+        type: object
+        fields:
+          - name: id
+            label: Season ID
+            type: string
+          - name: status
+            label: Status
+            type: select
+            options:
+              values: [closed, soon-to-open, open]
+          - name: statusLabel
+            label: Status label
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: summary
+            label: Summary
+            type: text
+          - name: closedCta
+            label: Closed-season CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Link
+                type: string
+          - name: links
+            label: Registration links
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Link
+                type: string
+              - name: gameDays
+                label: Game days
+                type: string
+              - name: ageGroups
+                label: Age groups
+                type: string
+          - name: ageGroups
+            label: Age groups
+            type: object
+            list: true
+            fields:
+              - name: code
+                label: Code
+                type: string
+              - name: name
+                label: Name
+                type: string
+              - name: dobFrom
+                label: DOB from
+                type: string
+              - name: dobTo
+                label: DOB to
+                type: string
+
   - name: sections-play
     label: Play pages
     type: collection
@@ -440,6 +593,44 @@ content:
       - name: order
         label: Sort order
         type: number
+      - name: body
+        label: Body
+        type: rich-text
+
+  - name: team-manager-topics
+    label: Team Manager topics
+    type: collection
+    path: src/content/team-manager
+    filename:
+      template: "{primary}.md"
+      field: create
+    format: yaml-frontmatter
+    subfolders: false
+    view:
+      primary: title
+      fields: [title, order]
+      sort: [order, title]
+      search: [title, metaDescription, summary]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: metaTitle
+        label: Meta title
+        type: string
+      - name: metaDescription
+        label: Meta description
+        type: text
+        required: true
+      - name: summary
+        label: Topic summary
+        type: text
+        required: true
+      - name: order
+        label: Sort order
+        type: number
+        required: true
       - name: body
         label: Body
         type: rich-text
