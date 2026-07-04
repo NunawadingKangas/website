@@ -28,7 +28,7 @@ const { Content } = await render(entry);
 <BaseLayout title={entry.data.metaTitle ?? `${entry.data.title} | Team Manager | Nunawading Kangas`} description={entry.data.metaDescription}>
   <div class="hero-gradient-surface">
     <PageHeader eyebrow="Team Manager" title={entry.data.title} summary={entry.data.summary} />
-    <section class="relative bg-tertiary-fixed pb-24 pt-4 text-surface md:pb-28 md:pt-6">
+    <section class="relative bg-tertiary-fixed pb-24 text-surface md:pb-28">
       <div class="section-wrap">
         <article class="bg-white p-6 shadow-sm md:p-10">
           <TeamManagerNav currentSlug={slug} />

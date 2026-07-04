@@ -10,6 +10,9 @@ items:
       - label: Game Days & Times
         href: /play/schedules
         order: 3
+      - label: PlayHQ Fixtures
+        href: https://www.playhq.com/basketball-victoria/org/nunawading-kangas-basketball-club/46ad7145
+        order: 4
   - label: Club Info
     childrenFrom: club
   - label: Get Involved

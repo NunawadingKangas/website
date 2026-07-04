@@ -8,7 +8,7 @@ section: play
 order: 2
 ---
 
-## Winter 2026 Season Fees
+## Season Fees
 
 Once the official registration period is over, a late fee of $50 will apply to any late registrations allowed.
 
