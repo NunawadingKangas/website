@@ -95,21 +95,42 @@ const footer = defineCollection({
   })
 });
 
-const ageGroups = defineCollection({
+const registrationLinkSchema = z.object({
+  label: z.string(),
+  href: z.string(),
+  gameDays: z.string(),
+  ageGroups: z.string()
+});
+
+const ageGroupSchema = z.object({
+  code: z.string(),
+  name: z.string(),
+  dobFrom: z.string(),
+  dobTo: z.string()
+});
+
+const seasonRegistrationSchema = z.object({
+  id: z.string(),
+  status: z.enum(["closed", "soon-to-open", "open"]),
+  statusLabel: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  closedCta: linkSchema.optional(),
+  links: z.array(registrationLinkSchema),
+  ageGroups: z.array(ageGroupSchema)
+});
+
+const registration = defineCollection({
   type: "data",
   schema: z.object({
-    title: z.string(),
-    seasonLabel: z.string(),
-    ctaLabel: z.string(),
-    ctaHref: z.string(),
-    groups: z.array(
-      z.object({
-        code: z.string(),
-        name: z.string(),
-        dobFrom: z.string(),
-        dobTo: z.string()
-      })
-    )
+    missedRegistration: z.object({
+      title: z.string(),
+      summary: z.string(),
+      ctaLabel: z.string(),
+      ctaHref: z.string()
+    }),
+    currentSeason: seasonRegistrationSchema,
+    upcomingSeason: seasonRegistrationSchema
   })
 });
 
@@ -170,7 +191,7 @@ export const collections = {
   news,
   navigation,
   footer,
-  "age-groups": ageGroups,
+  registration,
   schedules,
   "sections": sections,
   "team-manager": teamManager

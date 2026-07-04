@@ -1,0 +1,96 @@
+missedRegistration:
+  title: What if you missed registration?
+  summary: If you've missed registration, you can still contact us to see if we have any places available for your age group, or to put your name on our contact list to be notified when registration for the next season opens.
+  ctaLabel: Contact us
+  ctaHref: https://docs.google.com/forms/d/e/1FAIpQLScubmjIHuY0eSvsoOrcW0aBTEaXduTOxbGvtomfI_ZjmUm4cw/viewform
+currentSeason:
+  id: winter-2026
+  status: closed
+  statusLabel: Registration closed
+  title: Winter 2026 Season
+  summary: Winter 2026 player registration is now closed.
+  closedCta:
+    label: View PlayHQ Fixtures
+    href: https://www.playhq.com/basketball-victoria/org/nunawading-kangas-basketball-club/46ad7145
+  links:
+    - label: Weeknight Competition
+      href: "#"
+      gameDays: Monday girls or Friday boys
+      ageGroups: Under 8 to Under 19
+    - label: Saturday Competition
+      href: "#"
+      gameDays: Saturday boys and girls
+      ageGroups: Under 8 to Under 19
+  ageGroups:
+    - code: U8
+      name: Under 8
+      dobFrom: 1 Jul 2018
+      dobTo: 30 Jun 2021
+    - code: U9
+      name: Under 9
+      dobFrom: 1 Jul 2017
+      dobTo: 30 Jun 2018
+    - code: U11
+      name: Under 11
+      dobFrom: 1 Jul 2015
+      dobTo: 30 Jun 2017
+    - code: U13
+      name: Under 13
+      dobFrom: 1 Jul 2013
+      dobTo: 30 Jun 2015
+    - code: U15
+      name: Under 15
+      dobFrom: 1 Jul 2011
+      dobTo: 30 Jun 2013
+    - code: U17
+      name: Under 17
+      dobFrom: 1 Jul 2009
+      dobTo: 30 Jun 2011
+    - code: U19
+      name: Under 19
+      dobFrom: 1 Jul 2007
+      dobTo: 30 Jun 2009
+upcomingSeason:
+  id: summer-2026
+  status: soon-to-open
+  statusLabel: Opening soon
+  title: Summer 2026 Season
+  summary: Registration links will open at the beginning of term 3.
+  links:
+    - label: Register for Weeknights
+      href: "#"
+      gameDays: Monday girls or Friday boys
+      ageGroups: Under 8 to Under 19
+    - label: Register for Saturdays
+      href: "#"
+      gameDays: Saturday boys and girls
+      ageGroups: Under 8 to Under 19
+  ageGroups:
+    - code: U8
+      name: Under 8
+      dobFrom: 1 Jul 2018
+      dobTo: 30 Jun 2021
+    - code: U9
+      name: Under 9
+      dobFrom: 1 Jul 2017
+      dobTo: 30 Jun 2018
+    - code: U11
+      name: Under 11
+      dobFrom: 1 Jul 2015
+      dobTo: 30 Jun 2017
+    - code: U13
+      name: Under 13
+      dobFrom: 1 Jul 2013
+      dobTo: 30 Jun 2015
+    - code: U15
+      name: Under 15
+      dobFrom: 1 Jul 2011
+      dobTo: 30 Jun 2013
+    - code: U17
+      name: Under 17
+      dobFrom: 1 Jul 2009
+      dobTo: 30 Jun 2011
+    - code: U19
+      name: Under 19
+      dobFrom: 1 Jul 2007
+      dobTo: 30 Jun 2009

@@ -8,7 +8,7 @@ order: 3
 
 ## Team sheet fees
 
-From Winter 2024, the Club collects player contributions for team sheet fees when each player registers. Team sheet fees are paid by the Club directly to the Association.
+The Club collects player contributions for team sheet fees when each player registers. Team sheet fees are paid by the Club directly to the Association.
 
 Team Managers do not need to collect normal season team sheet fees from families or pay those fees each week.
 

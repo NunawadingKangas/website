@@ -8,23 +8,15 @@ section: play
 order: 1
 ---
 
-Winter 2026 Season registration is now closed.
-
-Click here to go to our registration page on PlayHQ.
-
-[REGISTER TO PLAY WEEKNIGHTS (MONDAY GIRLS OR FRIDAY BOYS)](#)
-
-[REGISTER TO PLAY SATURDAY (BOYS AND GIRLS)](#)
-
 ## When to Register?
 
 Winter Season Registration usually opens at the beginning of Term 1, in preparation for the Winter Season that runs over Term 2 and Term 3.
 
 Summer Season registration opens at the beginning of Term 3, in prepartion for the Summer Season that runs over Term 4 and Term 1.
 
-## What if you missed registration?
+## Age groups
 
-If you've missed registration, you can still [contact us using this link](https://docs.google.com/forms/d/e/1FAIpQLScubmjIHuY0eSvsoOrcW0aBTEaXduTOxbGvtomfI_ZjmUm4cw/viewform) to see if we have any places available for your age group, or to put your name on our contact list to be notified when registration for the next season opens.
+Players would usually play in the appropriate age group based on their dob - view age groups of the season to identify your age group. It's unusual to play out of your age group and you should discuss this with the Age Group Coordinator before you register. Please note that positions in an older grade are subject to availabilty and if numbers do not allow this, the Club may need to place players in their correct age group.
 
 ## Team Selection
 
@@ -61,7 +53,3 @@ Team selection is a complex process that seeks to balance player development wit
 Age Group Coordinators are experienced Club contributors, many of whom have also served as parents, coaches, and team managers. They understand the challenges that come with team changes and work collaboratively with families wherever feasible. When a request cannot be met, it is typically due to valid team or club-wide considerations.
 
 Above all, we are focused on fostering player development, ensuring fair participation, and encouraging new friendships through the shared experience of team sport.
-
-## Age groups
-
-Players would usually play in the appropriate age group based on their dob - see the tables below to identify your age group. It's unusual to play out of your age group and you should discuss this with the Age Group Coordinator before you register. Please note that positions in an older grade are subject to availabilty and if numbers do not allow this, the Club may need to place players in their correct age group.
