@@ -24,7 +24,7 @@ const seasons = [currentSeason, upcomingSeason];
 ---
 
 <SectionPageTemplate page={page}>
-  <div class="registration-season-cards" aria-label="Season registration options">
+  <div slot="beforeBody" class="registration-season-cards" aria-label="Season registration options">
     {seasons.map((season, seasonIndex) => (
       <article class={`registration-season-card registration-season-card-${season.status}`}>
         <span class="registration-season-status">{season.statusLabel}</span>
@@ -207,7 +207,6 @@ const seasons = [currentSeason, upcomingSeason];
   .registration-season-cards {
     display: grid;
     gap: 1rem;
-    margin-bottom: 2.5rem;
   }
 
   .registration-season-card {
@@ -588,6 +587,7 @@ const seasons = [currentSeason, upcomingSeason];
 
     .registration-season-details-panel {
       grid-template-rows: 1fr;
+      overflow: visible;
       opacity: 1;
       transform: none;
     }

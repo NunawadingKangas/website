@@ -10,12 +10,18 @@ interface Props {
 
 const { page } = Astro.props;
 const hasBody = Astro.slots.has("default");
+const hasBeforeBody = Astro.slots.has("beforeBody");
 ---
 
 <BaseLayout title={page.metaTitle ?? page.title} description={page.metaDescription}>
   <div class="hero-gradient-surface">
     <PageHeader eyebrow={page.eyebrow} title={page.title} summary={page.summary} />
-    <section class={`relative bg-tertiary-fixed text-surface ${hasBody ? "pb-24 md:pb-28" : "pb-20 md:pb-24"}`}>
+    <section class={`relative bg-tertiary-fixed text-surface ${hasBody || hasBeforeBody ? "pb-24 md:pb-28" : "pb-20 md:pb-24"}`}>
+      {hasBeforeBody && (
+        <div class="section-wrap mb-8 md:mb-10">
+          <slot name="beforeBody" />
+        </div>
+      )}
       {hasBody && (
         <div class="section-wrap">
           <article class="bg-white p-6 shadow-sm md:p-10">
