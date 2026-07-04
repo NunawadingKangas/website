@@ -7,7 +7,6 @@ summary: Registration information for Nunawading Kangas players and families.
 section: play
 order: 1
 ---
-
 ## When to Register?
 
 Winter Season Registration usually opens at the beginning of Term 1, in preparation for the Winter Season that runs over Term 2 and Term 3.
@@ -31,7 +30,7 @@ In addition to a player's age and ability, there are several other factors that 
 - **Team Selection Meetings** - AGCs and coaches will review the progress of players against their age group peers throughout the season. Players will develop differently, and it is important that we move players between grades to ensure that both the player and the team maximise their enjoyment of basketball.
 - **Friends** - requests to play with a friend or friendship group will be considered by the AGCs where there is a reciprocal request by the families; one-sided requests will not be considered. It is important that players are of a similar skill and experience level so that the overall grading of the team is suitable for the players and the competition that they are playing in. It is unfair on the player and the team for the Club to allocate a player that is significantly more or less skilled than the team and competition they are playing in.
 - **Team Size** - teams will generally have 7-8 players to ensure that we do not need to utilise fill-ins throughout the season and to provide all players with a good amount of court time. We expect that all players in a team will be available for the majority of games and training sessions throughout the season.
-- **Late Registrations** - will generally not be accepted. An extreme amount of volunteer time is invested into the selection process to ensure we have the right team balance across all age groups. If you have an extenuating circumstance, you can contact the registrar directly via [registrar@nunawadingkangas.com.au](mailto:registrar@nunawadingkangas.com.au).
+- **Late Registrations** - will generally not be accepted. An extreme amount of volunteer time is invested into the selection process to ensure we have the right team balance across all age groups. If you have an extenuating circumstance, you can contact the registrar directly via [registrar](mailto:registrar@nunawadingkangas.com.au).
 
 The club prioritises placing players within their designated age groups to support balanced competition and appropriate skill development. In special circumstances, requests for a player to be placed in a team above their designated age group must be submitted in writing to the Age Group Coordinator (AGC). Such requests will be subject to review and approval by the AGC.
 
