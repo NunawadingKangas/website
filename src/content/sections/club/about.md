@@ -1,16 +1,17 @@
 ---
 title: About the Club
 metaTitle: About the Club | Nunawading Kangas
-metaDescription: About the Nunawading Kangas Basketball Club.
+metaDescription: We are part of the Melbourne East Basketball Association (MEBA)
+  and have over 800 players (over 90 teams) playing in the Junior Domestic
+  Competitions.
 eyebrow: Club Info
-summary: About the Nunawading Kangas Basketball Club.
+summary: We are part of the Melbourne East Basketball Association (MEBA) and
+  have over 800 players (over 90 teams) playing in the Junior Domestic
+  Competitions.
 section: club
 order: 1
 ---
-
 Nunawading Kangas Basketball Club is a community based junior club established over 50 years ago. Our players are drawn from Nunawading and the surrounding suburbs. Our aim is to provide an environment for our players to enjoy sport whilst improving their skills, learning about teamwork and respect for other players, coaches and referees. Older players have the opportunity to develop leadership skills through coaching younger teams.
-
-We are part of the Melbourne East Basketball Association (MEBA) and have over 800 players (over 90 teams) playing in the Junior Domestic Competitions.
 
 ## Our Mission
 
@@ -44,32 +45,31 @@ Since our formation in 1974, our Club has been run by a small crew of dedicated 
 
 The Club recognises their much appreciated involvment by bestowing Life Member status on them.
 
-<ul class="life-members-list">
-  <li>Debbie Black</li>
-  <li>Cameron Black</li>
-  <li>Ern Batten</li>
-  <li>Les McLean</li>
-  <li>Margaret McLean</li>
-  <li>Rob Paroissien</li>
-  <li>Robin Olley</li>
-  <li>Malcolm Harris</li>
-  <li>John Brasher</li>
-  <li>John Kenez</li>
-  <li>Joan Mooney</li>
-  <li>Sue Kusko</li>
-  <li>Geoff Hardcastle</li>
-  <li>Colin Drill</li>
-  <li>Denis Cavagna</li>
-  <li>Nora Radford</li>
-  <li>Margaret Steinicke</li>
-  <li>Mandy Brumm</li>
-  <li>Mark Kallady</li>
-  <li>Brenda Kallady</li>
-  <li>Brett Salter</li>
-  <li>Lyn Moran</li>
-  <li>Louise Maugeri</li>
-  <li>William Schneider</li>
-  <li>Ryan Moran</li>
-  <li>Rebecca Maugeri</li>
-  <li>Glen Whitehead</li>
-</ul>
+- Debbie Black
+- Cameron Black
+- Ern Batten
+- Les McLean
+- Margaret McLean
+- Rob Paroissien
+- Robin Olley
+- Malcolm Harris
+- John Brasher
+- John Kenez
+- Joan Mooney
+- Sue Kusko
+- Geoff Hardcastle
+- Colin Drill
+- Denis Cavagna
+- Nora Radford
+- Margaret Steinicke
+- Mandy Brumm
+- Mark Kallady
+- Brenda Kallady
+- Brett Salter
+- Lyn Moran
+- Louise Maugeri
+- William Schneider
+- Ryan Moran
+- Rebecca Maugeri
+- Glen Whitehead
+
