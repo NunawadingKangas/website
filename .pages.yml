@@ -186,7 +186,7 @@ content:
         type: string
 
   - name: game-days
-    label: Game days page
+    label: Game Days Information
     type: file
     path: src/content/game-days/main.yml
     format: yaml
