@@ -5,7 +5,7 @@ metaDescription: Key round dates for WNJ Monday, WNJ Friday, and Saturday junior
 eyebrow: Winter 2026 Season
 summary: Key round dates for WNJ Monday, WNJ Friday, and Saturday junior
   competitions, with holidays and finals called out for quick scanning.
-schedules:
+gameDays:
   - kicker: WNJ Monday
     title: Monday Nights
     ariaLabel: WNJ Monday winter 2026 schedule

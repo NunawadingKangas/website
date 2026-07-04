@@ -185,46 +185,10 @@ content:
         label: Background word
         type: string
 
-  - name: age-groups
-    label: Age groups page
+  - name: game-days
+    label: Game days page
     type: file
-    path: src/content/age-groups/main.yml
-    format: yaml
-    fields:
-      - name: title
-        label: Title
-        type: string
-      - name: seasonLabel
-        label: Season label
-        type: string
-      - name: ctaLabel
-        label: CTA label
-        type: string
-      - name: ctaHref
-        label: CTA link
-        type: string
-      - name: groups
-        label: Groups
-        type: object
-        list: true
-        fields:
-          - name: code
-            label: Code
-            type: string
-          - name: name
-            label: Name
-            type: string
-          - name: dobFrom
-            label: DOB from
-            type: string
-          - name: dobTo
-            label: DOB to
-            type: string
-
-  - name: schedules
-    label: Schedules page
-    type: file
-    path: src/content/schedules/main.yml
+    path: src/content/game-days/main.yml
     format: yaml
     fields:
       - name: title
@@ -242,8 +206,8 @@ content:
       - name: summary
         label: Summary
         type: text
-      - name: schedules
-        label: Schedule tables
+      - name: gameDays
+        label: Game day tables
         type: object
         list: true
         fields:
@@ -273,8 +237,8 @@ content:
                 options:
                   values: [round, break]
 
-  - name: registration
-    label: Registration page
+  - name: season
+    label: Season Information
     type: file
     path: src/content/registration/main.yml
     format: yaml

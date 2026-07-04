@@ -134,7 +134,7 @@ const registration = defineCollection({
   })
 });
 
-const schedules = defineCollection({
+const gameDays = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
@@ -142,7 +142,7 @@ const schedules = defineCollection({
     metaDescription: z.string(),
     eyebrow: z.string(),
     summary: z.string(),
-    schedules: z.array(
+    gameDays: z.array(
       z.object({
         kicker: z.string(),
         title: z.string(),
@@ -192,7 +192,7 @@ export const collections = {
   navigation,
   footer,
   registration,
-  schedules,
+  "game-days": gameDays,
   "sections": sections,
   "team-manager": teamManager
 };

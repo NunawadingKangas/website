@@ -8,7 +8,7 @@ items:
     childrenFrom: play
     children:
       - label: Game Days
-        href: /play/schedules
+        href: /play/game-days
         order: 3
   - label: Club Info
     childrenFrom: club
