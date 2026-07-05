@@ -1,148 +1,136 @@
 title: Game Days
 metaTitle: Game Days | Nunawading Kangas
 metaDescription: Key round dates for WNJ Monday, WNJ Friday, and Saturday junior
-  competitions in the Winter 2026 season.
-eyebrow: Winter 2026 Season
+  competitions in the Summer 2026 season.
+eyebrow: Summer 2026 Season
 summary: Key round dates for WNJ Monday, WNJ Friday, and Saturday junior
   competitions, with holidays and finals called out for quick scanning.
 gameDays:
   - kicker: WNJ Monday
     title: Monday Nights
-    ariaLabel: WNJ Monday winter 2026 schedule
+    ariaLabel: WNJ Monday summer 2026 schedule
     items:
       - label: "1"
-        date: 20-Apr
+        date: 5-Oct
       - label: "2"
-        date: 27-Apr
+        date: 12-Oct
       - label: "3"
-        date: 4-May
+        date: 19-Oct
       - label: "4"
-        date: 11-May
+        date: 26-Oct
       - label: "5"
-        date: 18-May
+        date: 2-Nov
       - label: "6"
-        date: 25-May
+        date: 9-Nov
       - label: "7"
-        date: 1-Jun
-      - label: King's Birthday - 8-Jun
-        type: break
+        date: 16-Nov
       - label: "8"
-        date: 15-Jun
+        date: 23-Nov
       - label: "9"
-        date: 22-Jun
-      - label: School Holidays
-        type: break
+        date: 30-Nov
       - label: "10"
-        date: 13-Jul
+        date: 7-Dec
       - label: "11"
-        date: 20-Jul
+        date: 14-Dec
+      - label: Christmas Holidays
+        type: break
       - label: "12"
-        date: 27-Jul
+        date: 1-Feb
       - label: "13"
-        date: 3-Aug
+        date: 8-Feb
       - label: "14"
-        date: 10-Aug
+        date: 15-Feb
       - label: "15"
-        date: 17-Aug
+        date: 22-Feb
       - label: "16"
-        date: 24-Aug
-      - label: "17"
-        date: 31-Aug
+        date: 1-Mar
+      - label: Labour Day - 8-Mar
+        type: break
       - label: Elim. Finals
-        date: 7-Sep
+        date: 15-Mar
       - label: Grand Finals
-        date: 14-Sep
+        date: 22-Mar
   - kicker: WNJ Friday
     title: Friday Nights
-    ariaLabel: WNJ Friday winter 2026 schedule
+    ariaLabel: WNJ Friday summer 2026 schedule
     items:
       - label: "1"
-        date: 24-Apr
+        date: 9-Oct
       - label: "2"
-        date: 1-May
+        date: 16-Oct
       - label: "3"
-        date: 8-May
+        date: 23-Oct
       - label: "4"
-        date: 15-May
+        date: 30-Oct
       - label: "5"
-        date: 22-May
+        date: 6-Nov
       - label: "6"
-        date: 29-May
+        date: 13-Nov
       - label: "7"
-        date: 5-Jun
+        date: 20-Nov
       - label: "8"
-        date: 12-Jun
+        date: 27-Nov
       - label: "9"
-        date: 19-Jun
+        date: 4-Dec
       - label: "10"
-        date: 26-Jun
-      - label: School Holidays
+        date: 11-Dec
+      - label: Christmas Holidays
         type: break
       - label: "11"
-        date: 17-Jul
+        date: 29-Jan
       - label: "12"
-        date: 24-Jul
+        date: 5-Feb
       - label: "13"
-        date: 31-Jul
+        date: 12-Feb
       - label: "14"
-        date: 7-Aug
+        date: 19-Feb
       - label: "15"
-        date: 14-Aug
+        date: 26-Feb
       - label: "16"
-        date: 21-Aug
-      - label: "17"
-        date: 28-Aug
-      - label: "18"
-        date: 4-Sep
+        date: 5-Mar
       - label: Elim. Finals
-        date: 11-Sep
+        date: 12-Mar
       - label: Grand Finals
-        date: 18-Sep
+        date: 19-Mar
   - kicker: Saturday Jnr
     title: Saturday Juniors
-    ariaLabel: Saturday junior winter 2026 schedule
+    ariaLabel: Saturday junior summer 2026 schedule
     items:
-      - label: Anzac Day - 25-Apr
-        type: break
       - label: "1"
-        date: 2-May
+        date: 10-Oct
       - label: "2"
-        date: 9-May
+        date: 17-Oct
       - label: "3"
-        date: 16-May
+        date: 24-Oct
+      - label: Melbourne Cup Weekend - 31-Oct
+        type: break
       - label: "4"
-        date: 23-May
+        date: 7-Nov
       - label: "5"
-        date: 30-May
-      - label: King's Birthday - 6-Jun
-        type: break
+        date: 14-Nov
       - label: "6"
-        date: 13-Jun
+        date: 21-Nov
       - label: "7"
-        date: 20-Jun
+        date: 28-Nov
       - label: "8"
-        date: 27-Jun
-      - label: School Holidays
-        type: break
+        date: 5-Dec
       - label: "9"
-        date: 11-Jul
+        date: 12-Dec
+      - label: Christmas Holidays
+        type: break
       - label: "10"
-        date: 18-Jul
+        date: 30-Jan
       - label: "11"
-        date: 25-Jul
+        date: 6-Feb
       - label: "12"
-        date: 1-Aug
+        date: 13-Feb
       - label: "13"
-        date: 8-Aug
+        date: 20-Feb
       - label: "14"
-        date: 15-Aug
+        date: 27-Feb
       - label: "15"
-        date: 22-Aug
-      - label: "16"
-        date: 29-Aug
-      - label: "17"
-        date: 5-Sep
+        date: 6-Mar
       - label: Elim. Finals
-        date: 12-Sep
+        date: 13-Mar
       - label: Grand Finals
-        date: 19-Sep
+        date: 20-Mar

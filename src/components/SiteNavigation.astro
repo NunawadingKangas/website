@@ -35,18 +35,25 @@ const drawerLogoSrc = withBase("/img/logo-light.png");
     </a>
     <div class="hidden items-center gap-3 lg:flex">
       {items.map((item) => (
-        <div class="desktop-nav-group relative">
+        <div class="desktop-nav-group relative" data-desktop-nav-group>
           {item.href ? (
             <a class="nav-link tracking-tighter uppercase" data-label={item.label} href={withBase(item.href)} {...externalLinkAttrs(item.href)}>
               <span>{item.label}</span>
             </a>
           ) : (
-            <button class="nav-link nav-parent-control tracking-tighter uppercase" data-label={item.label} type="button">
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="nav-link nav-parent-control tracking-tighter uppercase"
+              data-desktop-nav-toggle
+              data-label={item.label}
+              type="button"
+            >
               <span>{item.label}</span>
             </button>
           )}
           {item.children && item.children.length > 0 && (
-            <div class={`desktop-subnav-shell absolute top-full pt-0 ${item.label === "Contact" ? "right-0" : "left-0"}`}>
+            <div class={`desktop-subnav-shell absolute top-full pt-0 ${item.label === "Contact" ? "right-0" : "left-0"}`} data-desktop-subnav>
               <div class="desktop-subnav min-w-[220px] p-2">
                 {item.children.map((child) => (
                   <a class="block text-base font-bold uppercase" href={withBase(child.href)} {...externalLinkAttrs(child.href)}>{child.label}</a>
@@ -100,6 +107,92 @@ const drawerLogoSrc = withBase("/img/logo-light.png");
   </div>
 </aside>
 
+<script>
+  const desktopNavGroups = Array.from(document.querySelectorAll<HTMLElement>("[data-desktop-nav-group]"));
+  const desktopNavToggles = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-desktop-nav-toggle]"));
+  const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  const closeDesktopNavGroup = (group: HTMLElement) => {
+    group.removeAttribute("data-nav-open");
+    group.removeAttribute("data-nav-open-mode");
+    group.querySelector<HTMLButtonElement>("[data-desktop-nav-toggle]")?.setAttribute("aria-expanded", "false");
+  };
+
+  const openDesktopNavGroup = (group: HTMLElement, mode: "click" | "hover") => {
+    group.setAttribute("data-nav-open", "");
+    group.setAttribute("data-nav-open-mode", mode);
+    group.querySelector<HTMLButtonElement>("[data-desktop-nav-toggle]")?.setAttribute("aria-expanded", "true");
+  };
+
+  const closeOtherDesktopNavGroups = (currentGroup: HTMLElement) => {
+    desktopNavGroups.forEach((group) => {
+      if (group !== currentGroup) {
+        closeDesktopNavGroup(group);
+      }
+    });
+  };
+
+  const openDesktopNavGroupForHover = (currentGroup: HTMLElement) => {
+    if (currentGroup.querySelector("[data-desktop-subnav]")) {
+      closeOtherDesktopNavGroups(currentGroup);
+      openDesktopNavGroup(currentGroup, "hover");
+      return;
+    }
+
+    desktopNavGroups.forEach(closeDesktopNavGroup);
+  };
+
+  desktopNavGroups.forEach((group) => {
+    group.addEventListener("pointerenter", () => {
+      if (finePointerQuery.matches) {
+        openDesktopNavGroupForHover(group);
+      }
+    });
+
+    group.addEventListener("pointerleave", () => {
+      if (finePointerQuery.matches && group.getAttribute("data-nav-open-mode") === "hover") {
+        closeDesktopNavGroup(group);
+      }
+    });
+  });
+
+  desktopNavToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (event) => {
+      const group = toggle.closest<HTMLElement>("[data-desktop-nav-group]");
+
+      if (!group) {
+        return;
+      }
+
+      event.preventDefault();
+      const shouldOpen = group.getAttribute("data-nav-open-mode") !== "click";
+
+      closeOtherDesktopNavGroups(group);
+
+      if (shouldOpen) {
+        openDesktopNavGroup(group, "click");
+        return;
+      }
+
+      closeDesktopNavGroup(group);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest("[data-desktop-nav-group]")) {
+      return;
+    }
+
+    desktopNavGroups.forEach(closeDesktopNavGroup);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      desktopNavGroups.forEach(closeDesktopNavGroup);
+    }
+  });
+</script>
+
 <style>
   .brand-logo-link {
     display: inline-flex;
@@ -140,7 +233,7 @@ const drawerLogoSrc = withBase("/img/logo-light.png");
   }
 
   .nav-parent-control {
-    cursor: default;
+    cursor: pointer;
   }
 
   .nav-link::after {
@@ -158,8 +251,7 @@ const drawerLogoSrc = withBase("/img/logo-light.png");
     grid-area: 1 / 1;
   }
 
-  .desktop-nav-group:hover .nav-link,
-  .desktop-nav-group:focus-within .nav-link,
+  .desktop-nav-group[data-nav-open] .nav-link,
   .nav-link:hover,
   .nav-link:focus-visible {
     background: #ffc700;
@@ -177,8 +269,7 @@ const drawerLogoSrc = withBase("/img/logo-light.png");
       transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .desktop-nav-group:hover .desktop-subnav-shell,
-  .desktop-nav-group:focus-within .desktop-subnav-shell {
+  .desktop-nav-group[data-nav-open] .desktop-subnav-shell {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0) scale(1);

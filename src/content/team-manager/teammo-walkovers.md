@@ -33,7 +33,7 @@ If your team lodges a walkover:
 
 - The game is recorded as a loss for your team.
 - The opposition is awarded the win and ladder points.
-- The team is charged a $150 penalty fee by the Association.
+- The team is charged a $160 penalty fee by the Association.
 - The walkover is submitted through Teammo. Teammo describes this as submitting a forfeit.
 
 To avoid a walkover, contact your Age Group Coordinator as early as possible so they can help source eligible fill-in players. Fill-in players can be used to bring your team up to six players.

@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 function isExternalHref(href) {
   return /^https?:\/\//i.test(href);
@@ -69,11 +70,15 @@ const repository = process.env.GITHUB_REPOSITORY;
 const [owner = "prechtru", repo = "kangas"] = repository?.split("/") ?? [];
 const isUserSiteRepo = repo === `${owner}.github.io`;
 const isGitHubActions = process.env.GITHUB_ACTIONS === "true";
-const base = isGitHubActions && !isUserSiteRepo ? `/${repo}` : "/";
+const defaultSite = "https://www.nunawadingkangas.com.au";
+const site = process.env.SITE ?? defaultSite;
+const isGitHubPagesSite = site.endsWith(".github.io") || site.includes(".github.io/");
+const base = process.env.BASE_PATH ?? (isGitHubActions && isGitHubPagesSite && !isUserSiteRepo ? `/${repo}` : "/");
 
 export default defineConfig({
-  site: `https://${owner}.github.io`,
+  site,
   base,
+  integrations: [sitemap()],
   markdown: {
     rehypePlugins: [rehypeNewTabLinks, [rehypeBasePaths, base]]
   }

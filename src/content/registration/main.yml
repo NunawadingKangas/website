@@ -68,29 +68,29 @@ upcomingSeason:
   ageGroups:
     - code: U8
       name: Under 8
-      dobFrom: 1 Jul 2018
-      dobTo: 30 Jun 2021
+      dobFrom: 1 Jan 2019
+      dobTo: 31 Dec 2021
     - code: U9
       name: Under 9
-      dobFrom: 1 Jul 2017
-      dobTo: 30 Jun 2018
+      dobFrom: 1 Jan 2018
+      dobTo: 31 Dec 2018
     - code: U11
       name: Under 11
-      dobFrom: 1 Jul 2015
-      dobTo: 30 Jun 2017
+      dobFrom: 1 Jan 2016
+      dobTo: 31 Dec 2017
     - code: U13
       name: Under 13
-      dobFrom: 1 Jul 2013
-      dobTo: 30 Jun 2015
+      dobFrom: 1 Jan 2014
+      dobTo: 31 Dec 2015
     - code: U15
       name: Under 15
-      dobFrom: 1 Jul 2011
-      dobTo: 30 Jun 2013
+      dobFrom: 1 Jan 2012
+      dobTo: 31 Dec 2013
     - code: U17
       name: Under 17
-      dobFrom: 1 Jul 2009
-      dobTo: 30 Jun 2011
+      dobFrom: 1 Jan 2010
+      dobTo: 31 Dec 2011
     - code: U19
       name: Under 19
-      dobFrom: 1 Jul 2007
-      dobTo: 30 Jun 2009
+      dobFrom: 1 Jan 2008
+      dobTo: 31 Dec 2009
