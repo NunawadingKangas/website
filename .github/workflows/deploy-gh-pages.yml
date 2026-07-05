@@ -20,6 +20,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      SITE: https://nunawadingkangas.github.io/website
+      BASE_PATH: /website
 
     steps:
       - name: Check out repository
