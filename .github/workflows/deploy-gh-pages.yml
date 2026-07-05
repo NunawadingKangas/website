@@ -46,8 +46,116 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
+          name: github-pages-attempt-1
           path: ./dist
 
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deployment_attempt_1
         uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-attempt-1
+        continue-on-error: true
+
+      - name: Wait before deploy retry 2
+        if: steps.deployment_attempt_1.outcome == 'failure'
+        run: sleep 30
+
+      - name: Upload Pages artifact retry 2
+        if: steps.deployment_attempt_1.outcome == 'failure'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          name: github-pages-attempt-2
+          path: ./dist
+
+      - name: Deploy to GitHub Pages retry 2
+        id: deployment_attempt_2
+        if: steps.deployment_attempt_1.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-attempt-2
+        continue-on-error: true
+
+      - name: Wait before deploy retry 3
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure'
+        run: sleep 60
+
+      - name: Upload Pages artifact retry 3
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          name: github-pages-attempt-3
+          path: ./dist
+
+      - name: Deploy to GitHub Pages retry 3
+        id: deployment_attempt_3
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-attempt-3
+        continue-on-error: true
+
+      - name: Wait before deploy retry 4
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure' && steps.deployment_attempt_3.outcome == 'failure'
+        run: sleep 120
+
+      - name: Upload Pages artifact retry 4
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure' && steps.deployment_attempt_3.outcome == 'failure'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          name: github-pages-attempt-4
+          path: ./dist
+
+      - name: Deploy to GitHub Pages retry 4
+        id: deployment_attempt_4
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure' && steps.deployment_attempt_3.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-attempt-4
+        continue-on-error: true
+
+      - name: Wait before deploy retry 5
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure' && steps.deployment_attempt_3.outcome == 'failure' && steps.deployment_attempt_4.outcome == 'failure'
+        run: sleep 240
+
+      - name: Upload Pages artifact retry 5
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure' && steps.deployment_attempt_3.outcome == 'failure' && steps.deployment_attempt_4.outcome == 'failure'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          name: github-pages-attempt-5
+          path: ./dist
+
+      - name: Deploy to GitHub Pages retry 5
+        id: deployment_attempt_5
+        if: steps.deployment_attempt_1.outcome == 'failure' && steps.deployment_attempt_2.outcome == 'failure' && steps.deployment_attempt_3.outcome == 'failure' && steps.deployment_attempt_4.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-attempt-5
+        continue-on-error: true
+
+      - name: Record deployment URL
+        id: deployment
+        run: |
+          page_url="${{ steps.deployment_attempt_1.outputs.page_url }}"
+
+          if [ -z "$page_url" ]; then
+            page_url="${{ steps.deployment_attempt_2.outputs.page_url }}"
+          fi
+
+          if [ -z "$page_url" ]; then
+            page_url="${{ steps.deployment_attempt_3.outputs.page_url }}"
+          fi
+
+          if [ -z "$page_url" ]; then
+            page_url="${{ steps.deployment_attempt_4.outputs.page_url }}"
+          fi
+
+          if [ -z "$page_url" ]; then
+            page_url="${{ steps.deployment_attempt_5.outputs.page_url }}"
+          fi
+
+          if [ -z "$page_url" ]; then
+            echo "GitHub Pages deployment failed after 5 attempts." >&2
+            exit 1
+          fi
+
+          echo "page_url=$page_url" >> "$GITHUB_OUTPUT"
