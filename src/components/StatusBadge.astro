@@ -1,0 +1,104 @@
+---
+interface Props {
+  label: string;
+  tone?: "default" | "closed" | "soon-to-open" | "open";
+  class?: string;
+}
+
+const { label, tone = "default", class: className = "" } = Astro.props;
+const classes = [
+  "status-badge",
+  `status-badge-${tone}`,
+  tone !== "default" && tone !== "closed" ? "status-badge-shine" : "",
+  className
+].filter(Boolean).join(" ");
+---
+
+<span class={classes}>
+  <span class="status-badge-label">{label}</span>
+</span>
+
+<style>
+  .status-badge {
+    --badge-background: #18181b;
+    --badge-color: #ffffff;
+    --badge-border: transparent;
+    --badge-shine-soft: rgba(255, 255, 255, 0.3);
+    --badge-shine-strong: rgba(255, 255, 255, 0.82);
+
+    display: inline-flex;
+    min-height: 1.75rem;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    background: var(--badge-background);
+    box-shadow: inset 0 0 0 1px var(--badge-border);
+    color: var(--badge-color);
+    padding: 0 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .status-badge-soon-to-open {
+    --badge-background: linear-gradient(110deg, #b45309 0%, #d97706 48%, #92400e 100%);
+    --badge-color: #ffffff;
+    --badge-shine-soft: rgba(255, 255, 255, 0.24);
+    --badge-shine-strong: rgba(255, 255, 255, 0.74);
+  }
+
+  .status-badge-open {
+    --badge-background: linear-gradient(110deg, #d4a300 0%, #ffc700 52%, #f5bf00 100%);
+    --badge-border: rgba(24, 24, 27, 0.08);
+    --badge-color: #18181b;
+    --badge-shine-soft: rgba(255, 255, 255, 0.34);
+    --badge-shine-strong: rgba(255, 255, 255, 0.86);
+  }
+
+  .status-badge-shine::before {
+    content: "";
+    position: absolute;
+    inset: -1px 0;
+    left: -50%;
+    width: 200%;
+    background:
+      linear-gradient(
+        110deg,
+        transparent 0%,
+        transparent 31%,
+        var(--badge-shine-soft) 39%,
+        var(--badge-shine-strong) 44%,
+        var(--badge-shine-soft) 49%,
+        transparent 57%,
+        transparent 100%
+      );
+    background-size: 50% 100%;
+    pointer-events: none;
+    transform: translateX(0);
+    animation: status-badge-shine 7.5s linear infinite;
+  }
+
+  .status-badge-label {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes status-badge-shine {
+    to {
+      transform: translateX(50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .status-badge-shine::before {
+      animation: none;
+      opacity: 0.45;
+      transform: translateX(-12%);
+    }
+  }
+</style>

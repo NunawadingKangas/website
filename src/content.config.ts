@@ -125,10 +125,9 @@ const registration = defineCollection({
   schema: z.object({
     missedRegistration: z.object({
       title: z.string(),
-      summary: z.string(),
-      ctaLabel: z.string(),
-      ctaHref: z.string()
+      summary: z.string()
     }),
+    enquiriesCTA: linkSchema,
     seasons: z.array(seasonRegistrationSchema).min(1)
   })
 });

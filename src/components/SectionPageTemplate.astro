@@ -18,7 +18,7 @@ const hasBeforeBody = Astro.slots.has("beforeBody");
     <PageHeader eyebrow={page.eyebrow} title={page.title} summary={page.summary} />
     <section class={`relative bg-tertiary-fixed text-surface ${hasBody || hasBeforeBody ? "pb-24 md:pb-28" : "pb-20 md:pb-24"}`}>
       {hasBeforeBody && (
-        <div class="section-wrap mb-8 md:mb-10">
+        <div class="section-wrap mb-6 md:mb-8">
           <slot name="beforeBody" />
         </div>
       )}

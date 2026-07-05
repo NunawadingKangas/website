@@ -3,8 +3,7 @@ import { getEntry, render } from "astro:content";
 import { getSectionPage } from "../../lib/sectionPages";
 import ButtonLink from "../../components/ButtonLink.astro";
 import SectionPageTemplate from "../../components/SectionPageTemplate.astro";
-import { withBase } from "../../lib/withBase";
-import { externalLinkAttrs } from "../../lib/linkAttrs";
+import StatusBadge from "../../components/StatusBadge.astro";
 
 const sectionPage = await getSectionPage("play", "registration");
 const registration = await getEntry("registration", "main");
@@ -19,7 +18,7 @@ if (!registration) {
 
 const page = sectionPage.page;
 const { Content } = await render(sectionPage.entry);
-const { missedRegistration } = registration.data;
+const { enquiriesCTA, missedRegistration } = registration.data;
 type RegistrationSeason = (typeof registration.data.seasons)[number];
 const closedSeason = registration.data.seasons.find((season) => season.status === "closed");
 const registrationSeason = registration.data.seasons.find((season) => season.status === "soon-to-open")
@@ -31,9 +30,14 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
   <div slot="beforeBody" class="registration-season-cards" aria-label="Season registration options">
     {seasons.map((season, seasonIndex) => (
       <article class={`registration-season-card registration-season-card-${season.status}`}>
-        <span class="registration-season-status">{season.statusLabel}</span>
+        <StatusBadge label={season.statusLabel} tone={season.status} />
         <h2>{season.title}</h2>
         <p>{season.summary}</p>
+        {season.status !== "closed" && (
+          <div class="registration-enquiries-row">
+            <ButtonLink href={enquiriesCTA.href} label={enquiriesCTA.label} size="sm" variant="secondary" />
+          </div>
+        )}
 
         {season.status === "closed" ? (
           <>
@@ -101,9 +105,9 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
                     <h3>{missedRegistration.title}</h3>
                     <p>{missedRegistration.summary}</p>
                   </div>
-                  <a class="registration-missed-link" href={withBase(missedRegistration.ctaHref)} {...externalLinkAttrs(missedRegistration.ctaHref)}>
-                    {missedRegistration.ctaLabel}
-                  </a>
+                  <div class="registration-enquiries-row">
+                    <ButtonLink href={enquiriesCTA.href} label={enquiriesCTA.label} size="sm" variant="secondary" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -267,33 +271,6 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
     line-height: 1;
   }
 
-  .registration-season-status {
-    display: inline-flex;
-    min-height: 1.75rem;
-    width: fit-content;
-    align-items: center;
-    justify-content: center;
-    background: #18181b;
-    color: #ffffff;
-    padding: 0 0.65rem;
-    font-size: 0.75rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    line-height: 1;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .registration-season-card-soon-to-open .registration-season-status {
-    background: #d97706;
-    color: #ffffff;
-  }
-
-  .registration-season-card-open .registration-season-status {
-    background: #ffc700;
-    color: #18181b;
-  }
-
   .registration-age-groups-disclosure {
     display: grid;
     gap: 0;
@@ -450,6 +427,35 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
     padding-top: 0.75rem;
   }
 
+  .registration-enquiries-row {
+    display: flex;
+    justify-content: flex-start;
+    padding-inline: 0.2rem;
+  }
+
+  .registration-season-actions > .registration-enquiries-row {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .registration-enquiries-row :global(.parallelogram) {
+    min-height: 0;
+    height: 2rem;
+    width: fit-content;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.8rem;
+    line-height: 1;
+  }
+
+  .registration-enquiries-row :global(.skew-fix) {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+
   .registration-season-actions > div > div span {
     display: block;
     color: #52525b;
@@ -467,6 +473,10 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
 
   .registration-missed-registration {
     align-items: start;
+  }
+
+  .registration-missed-registration .registration-enquiries-row {
+    justify-content: flex-start;
   }
 
   .registration-missed-registration > div {
@@ -487,21 +497,6 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
     color: #52525b;
     font-size: 0.9rem;
     line-height: 1.45;
-  }
-
-  .registration-missed-link {
-    display: inline-flex;
-    width: fit-content;
-    min-height: 2.5rem;
-    align-items: center;
-    color: #18181b;
-    font-size: 0.85rem;
-    font-weight: 900;
-    line-height: 1.2;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.25rem;
-    text-transform: uppercase;
   }
 
   .registration-disabled-button {
@@ -587,6 +582,11 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
       justify-self: center;
       margin-right: 0.5rem;
       margin-left: 0.5rem;
+    }
+
+    .registration-enquiries-row :global(.parallelogram) {
+      width: fit-content;
+      margin: 0;
     }
 
     .registration-season-card-closed .registration-season-details-panel {
