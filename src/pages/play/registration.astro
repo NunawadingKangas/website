@@ -576,6 +576,19 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
       margin-left: 0;
     }
 
+    .registration-season-actions > div {
+      justify-items: stretch;
+      text-align: left;
+    }
+
+    .registration-season-actions :global(.parallelogram),
+    .registration-season-actions .registration-disabled-button {
+      width: calc(100% - 1rem);
+      justify-self: center;
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
+
     .registration-season-card-closed .registration-season-details-panel {
       margin-top: 0;
     }
@@ -604,10 +617,22 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
       display: grid;
     }
 
+  }
+
+  @media (min-width: 1180px) {
     .registration-season-actions > div {
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
+      justify-items: stretch;
+      text-align: left;
     }
 
+    .registration-season-actions :global(.parallelogram),
+    .registration-season-actions .registration-disabled-button {
+      width: fit-content;
+      justify-self: end;
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 </style>
