@@ -11,11 +11,11 @@ order: 1
 
 Winter Season Registration usually opens at the beginning of Term 1, in preparation for the Winter Season that runs over Term 2 and Term 3.
 
-Summer Season registration opens at the beginning of Term 3, in prepartion for the Summer Season that runs over Term 4 and Term 1.
+Summer Season registration opens at the beginning of Term 3, in preparation for the Summer Season that runs over Term 4 and Term 1.
 
 ## Age groups
 
-Players would usually play in the appropriate age group based on their dob - view age groups of the season to identify your age group. It's unusual to play out of your age group and you should discuss this with the Age Group Coordinator before you register. Please note that positions in an older grade are subject to availabilty and if numbers do not allow this, the Club may need to place players in their correct age group.
+Players would usually play in the appropriate age group based on their dob - view age groups of the season to identify your age group. It's unusual to play out of your age group and you should discuss this with the Age Group Coordinator before you register. Please note that positions in an older grade are subject to availability and if numbers do not allow this, the Club may need to place players in their correct age group.
 
 ## Team Selection
 
