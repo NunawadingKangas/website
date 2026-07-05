@@ -259,74 +259,10 @@ content:
           - name: ctaHref
             label: CTA link
             type: string
-      - name: currentSeason
-        label: Current season
+      - name: seasons
+        label: Seasons
         type: object
-        fields:
-          - name: id
-            label: Season ID
-            type: string
-          - name: status
-            label: Status
-            type: select
-            options:
-              values: [closed, soon-to-open, open]
-          - name: statusLabel
-            label: Status label
-            type: string
-          - name: title
-            label: Title
-            type: string
-          - name: summary
-            label: Summary
-            type: text
-          - name: closedCta
-            label: Closed-season CTA
-            type: object
-            fields:
-              - name: label
-                label: Label
-                type: string
-              - name: href
-                label: Link
-                type: string
-          - name: links
-            label: Registration links
-            type: object
-            list: true
-            fields:
-              - name: label
-                label: Label
-                type: string
-              - name: href
-                label: Link
-                type: string
-              - name: gameDays
-                label: Game days
-                type: string
-              - name: ageGroups
-                label: Age groups
-                type: string
-          - name: ageGroups
-            label: Age groups
-            type: object
-            list: true
-            fields:
-              - name: code
-                label: Code
-                type: string
-              - name: name
-                label: Name
-                type: string
-              - name: dobFrom
-                label: DOB from
-                type: string
-              - name: dobTo
-                label: DOB to
-                type: string
-      - name: upcomingSeason
-        label: Upcoming season
-        type: object
+        list: true
         fields:
           - name: id
             label: Season ID

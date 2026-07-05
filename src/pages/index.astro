@@ -16,12 +16,21 @@ if (!registration) {
   throw new Error("Missing registration data entry.");
 }
 
+const registrationSeasons = registration.data.seasons;
+const ageGroupSeason = registrationSeasons.find((season) => season.status === "open")
+  ?? registrationSeasons.find((season) => season.status === "closed")
+  ?? registrationSeasons[0];
+
+if (!ageGroupSeason) {
+  throw new Error("Missing registration season data.");
+}
+
 const ageGroups = {
   title: "Age Groups",
   ctaLabel: "Play for Kangas",
   ctaHref: "/play/registration",
-  seasonLabel: registration.data.currentSeason.title,
-  groups: registration.data.currentSeason.ageGroups
+  seasonLabel: ageGroupSeason.title,
+  groups: ageGroupSeason.ageGroups
 };
 
 const latestNews = (await getCollection("news"))

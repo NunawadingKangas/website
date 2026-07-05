@@ -129,8 +129,7 @@ const registration = defineCollection({
       ctaLabel: z.string(),
       ctaHref: z.string()
     }),
-    currentSeason: seasonRegistrationSchema,
-    upcomingSeason: seasonRegistrationSchema
+    seasons: z.array(seasonRegistrationSchema).min(1)
   })
 });
 

@@ -19,8 +19,12 @@ if (!registration) {
 
 const page = sectionPage.page;
 const { Content } = await render(sectionPage.entry);
-const { currentSeason, upcomingSeason, missedRegistration } = registration.data;
-const seasons = [currentSeason, upcomingSeason];
+const { missedRegistration } = registration.data;
+type RegistrationSeason = (typeof registration.data.seasons)[number];
+const closedSeason = registration.data.seasons.find((season) => season.status === "closed");
+const registrationSeason = registration.data.seasons.find((season) => season.status === "soon-to-open")
+  ?? registration.data.seasons.find((season) => season.status === "open");
+const seasons = [closedSeason, registrationSeason].filter((season): season is RegistrationSeason => Boolean(season));
 ---
 
 <SectionPageTemplate page={page}>
