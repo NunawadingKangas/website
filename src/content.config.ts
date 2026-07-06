@@ -83,12 +83,6 @@ const footer = defineCollection({
         ariaLabel: z.string()
       })
     ),
-    linkGroups: z.array(
-      z.object({
-        title: z.string(),
-        links: z.array(linkSchema)
-      })
-    ),
     legalDetails: z.array(z.string()),
     copyright: z.string(),
     backgroundWord: z.string()
