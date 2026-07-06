@@ -133,6 +133,26 @@ content:
           - name: logo
             label: Logo
             type: image
+          - name: href
+            label: Link
+            type: string
+      - name: weSupportHeading
+        label: We support heading
+        type: string
+      - name: weSupport
+        label: We support
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: logo
+            label: Logo
+            type: image
+          - name: href
+            label: Link
+            type: string
       - name: clubName
         label: Club name
         type: string
@@ -177,6 +197,11 @@ content:
               - name: href
                 label: Link
                 type: string
+      - name: legalDetails
+        label: Legal details
+        type: string
+        list: true
+        description: Footer legal lines, such as incorporation details, ABN, and postal address.
       - name: copyright
         label: Copyright name
         type: string
@@ -253,11 +278,15 @@ content:
           - name: summary
             label: Summary
             type: text
-          - name: ctaLabel
-            label: CTA label
+      - name: enquiriesCTA
+        label: Enquiries CTA
+        type: object
+        fields:
+          - name: label
+            label: Label
             type: string
-          - name: ctaHref
-            label: CTA link
+          - name: href
+            label: Link
             type: string
       - name: seasons
         label: Seasons
