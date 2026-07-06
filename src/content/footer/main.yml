@@ -27,7 +27,7 @@ weSupport:
     logo: /img/goodsports.svg
     href: https://www.goodsports.com.au/
 clubName: NUNAWADING KANGAS BASKETBALL CLUB
-tagline: Where champions begin. Play for Kangas.
+tagline: Play. Grow. Celebrate. Play for Kangas.
 socialLinks:
   - label: Facebook
     ariaLabel: Facebook
@@ -41,7 +41,6 @@ socialLinks:
     ariaLabel: Email secretary@nunawadingkangas.com.au
     icon: email
     href: mailto:secretary@nunawadingkangas.com.au
-linkGroups: []
 legalDetails:
   - Incorporated Association A0012861T
   - ABN 18 183 701 345
