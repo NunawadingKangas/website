@@ -1,6 +1,8 @@
 missedRegistration:
   title: What if you missed registration?
-  summary: If you've missed registration, you can still contact us to see if we have any placements available for your age group or if you would like us to contact you with more information.
+  summary: If you've missed registration, you can still contact us to see if we
+    have any placements available for your age group or if you would like us to
+    contact you with more information.
 enquiriesCTA:
   label: Questions? Contact us online
   href: https://docs.google.com/forms/d/e/1FAIpQLScubmjIHuY0eSvsoOrcW0aBTEaXduTOxbGvtomfI_ZjmUm4cw/viewform
@@ -10,7 +12,8 @@ seasons:
     status: closed
     statusLabel: Registration closed
     title: Winter 2026 Season
-    summary: The Winter 2026 competition is underway and player registration has closed. Fixtures are available in PlayHQ.
+    summary: The Winter 2026 competition is underway and player registration has
+      closed. Fixtures are available in PlayHQ.
     closedCta:
       label: View PlayHQ Fixtures
       href: https://www.playhq.com/basketball-victoria/org/nunawading-kangas-basketball-club/46ad7145
@@ -56,7 +59,7 @@ seasons:
     order: 10
     status: soon-to-open
     statusLabel: Registration Opening soon
-    title: Summer 2026 Season
+    title: Summer 26/27 Season
     summary: Registration links will open at the beginning of term 3.
     links:
       - label: Register for Weeknights
