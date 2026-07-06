@@ -32,7 +32,7 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
       <article class={`registration-season-card registration-season-card-${season.status}`}>
         <StatusBadge label={season.statusLabel} tone={season.status} />
         <h2>{season.title}</h2>
-        <p>{season.summary}</p>
+        {season.status !== "closed" && <p>{season.summary}</p>}
         {season.status !== "closed" && (
           <div class="registration-enquiries-row">
             <ButtonLink href={enquiriesCTA.href} label={enquiriesCTA.label} size="sm" variant="secondary" />
@@ -58,6 +58,7 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
               data-desktop-open
             >
               <div class="registration-season-details-content">
+                <p>{season.summary}</p>
                 <div class="registration-season-primary-actions">
                   <div class="registration-age-groups-compact registration-age-groups-mobile-list" aria-label={`${season.title} age groups`}>
                     {season.ageGroups.map((group) => (
@@ -375,6 +376,11 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
     color: #3f3f46;
     font-size: 0.85rem;
     line-height: 1.35;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .registration-age-group-row:nth-child(odd) {
+    background: rgba(24, 24, 27, 0.045);
   }
 
   .registration-age-group-row strong {
@@ -546,6 +552,16 @@ const seasons = [closedSeason, registrationSeason].filter((season): season is Re
     inset: 0;
     border: 1px solid rgba(82, 82, 91, 0.18);
     pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .registration-season-card h2 {
+      font-size: 1.35rem;
+    }
+
+    .registration-age-group-row {
+      grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+    }
   }
 
   @media (min-width: 768px) {
