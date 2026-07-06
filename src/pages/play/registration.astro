@@ -23,7 +23,9 @@ type RegistrationSeason = (typeof registration.data.seasons)[number];
 const closedSeason = registration.data.seasons.find((season) => season.status === "closed");
 const registrationSeason = registration.data.seasons.find((season) => season.status === "soon-to-open")
   ?? registration.data.seasons.find((season) => season.status === "open");
-const seasons = [closedSeason, registrationSeason].filter((season): season is RegistrationSeason => Boolean(season));
+const seasons = [closedSeason, registrationSeason]
+  .filter((season): season is RegistrationSeason => Boolean(season))
+  .sort((a, b) => a.order - b.order);
 ---
 
 <SectionPageTemplate page={page}>

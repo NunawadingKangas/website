@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /club/committee
+Disallow: /play/registration
+Disallow: /play/fees-uniforms
+Disallow: /get-involved/team-manager
+Disallow: /get-involved/coaching
+Disallow: /get-involved/sponsorship

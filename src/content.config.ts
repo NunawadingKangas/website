@@ -105,6 +105,7 @@ const ageGroupSchema = z.object({
 
 const seasonRegistrationSchema = z.object({
   id: z.string(),
+  order: z.number(),
   status: z.enum(["closed", "soon-to-open", "open"]),
   statusLabel: z.string(),
   title: z.string(),

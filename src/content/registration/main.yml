@@ -6,6 +6,7 @@ enquiriesCTA:
   href: https://docs.google.com/forms/d/e/1FAIpQLScubmjIHuY0eSvsoOrcW0aBTEaXduTOxbGvtomfI_ZjmUm4cw/viewform
 seasons:
   - id: winter-2026
+    order: 20
     status: closed
     statusLabel: Registration closed
     title: Winter 2026 Season
@@ -52,6 +53,7 @@ seasons:
         dobFrom: 1 Jul 2007
         dobTo: 30 Jun 2009
   - id: summer-2026
+    order: 10
     status: soon-to-open
     statusLabel: Registration Opening soon
     title: Summer 2026 Season

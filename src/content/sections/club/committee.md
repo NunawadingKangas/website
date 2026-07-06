@@ -14,12 +14,12 @@ Nunawading Kangas Basketball Club is an incorporated association and is governed
 
 | Role | Member | Email |
 | --- | --- | --- |
-| President | Paul Sell | [Email President](mailto:President@nunawadingkangas.com.au) |
+| President | Paul Sell | |
 | Vice President | Vacant |  |
-| Treasurer | Rebecca Leong | [Email Treasurer](mailto:Treasurer@nunawadingkangas.com.au) |
+| Treasurer | Rebecca Leong | |
 | Secretary | Ben Cordeiro | [Email Secretary](mailto:Secretary@nunawadingkangas.com.au) |
 | Registrar | Aaron Lim | [Email Registrar](mailto:Registrar@nunawadingkangas.com.au) |
-| Competition Coordinator | Anthony LoGiusto & Johan Ng | [Email Competition Coordinator](mailto:compcoordinator@nunawadingkangas.com.au) |
+| Competition Coordinator | Anthony LoGiusto & Johan Ng | |
 | Age Group Coordinator - Girls U8 | Tara Mitchell | [Email Monday Coordinator](mailto:Mondaygirls8@nunawadingkangas.com.au) or [Email Saturday Coordinator](mailto:Saturdaygirls8@nunawadingkangas.com.au) |
 | Age Group Coordinator - Girls U9 | Tara Mitchell | [Email Monday Coordinator](mailto:Mondaygirls9@nunawadingkangs.com.au) or [Email Saturday Coordinator](mailto:Saturdaygirls9@nunawadingkangas.com.au) |
 | Age Group Coordinator - Girls U11 | Tiffany Ng | [Email Monday Coordinator](mailto:Mondaygirls11@nunawadingkangas.com.au) or [Email Saturday Coordinator](mailto:Saturdaygirls11@nunawadingkangas.com.au) |
@@ -37,12 +37,12 @@ Nunawading Kangas Basketball Club is an incorporated association and is governed
 | Senior Teams Coordinator | Lyn Moran | [Email Senior Teams Coordinator](mailto:LynM@nunawadingkangas.com.au) |
 | Child Welfare Officer | Lyn Moran (acting) | [Email Child Welfare Officer](mailto:Childwelfare@nunawadingkangas.com.au) |
 | Venue Coordinator | Ben Cordeiro | [Email Venue Coordinator](mailto:Venueco@nunawadingkangas.com.au) |
-| Coaching Coordinator | Jack Mitchell | [Email Coaching Coordinator](mailto:Coaching@nunawadingkangas.com.au) |
+| Coaching Coordinator | Jack Mitchell | |
 | Brand & Communication Coordinator | Cam Anstee | [Email Brand Coordinator](mailto:media@nunawadingkangas.com.au) |
 | Growth & Promotion | Cam Anstee | [Email Growth Coordinator](mailto:media@nunawadingkangas.com.au) |
-| Website / Social Media | Cam Anstee | [Email Website Coordinator](mailto:media@nunawadingkangas.com.au) |
+| Website / Social Media | Cam Anstee | |
 | Uniforms & merchandise | Renee Webb | [Email Uniforms Coordinator](mailto:Uniforms@nunawadingkangas.com.au) |
-| Trophy Coordinator | Saugat Dey | [Email Trophy Coordinator](mailto:trophies@nunawadingkangas.com.au) |
+| Trophy Coordinator | Saugat Dey | |
 | General Member | Damien Berryman |  |
 | General Member | Louise Maugeri |  |
 | General Member | Mark Kallady |  |

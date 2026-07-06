@@ -277,6 +277,9 @@ content:
           - name: id
             label: Season ID
             type: string
+          - name: order
+            label: Sort order
+            type: number
           - name: status
             label: Status
             type: select

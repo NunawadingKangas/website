@@ -17,9 +17,9 @@ if (!registration) {
 }
 
 const registrationSeasons = registration.data.seasons;
-const ageGroupSeason = registrationSeasons.find((season) => season.status === "open")
-  ?? registrationSeasons.find((season) => season.status === "closed")
-  ?? registrationSeasons[0];
+const ageGroupSeason = registrationSeasons.reduce((firstSeason, season) => (
+  season.order < firstSeason.order ? season : firstSeason
+), registrationSeasons[0]);
 
 if (!ageGroupSeason) {
   throw new Error("Missing registration season data.");
