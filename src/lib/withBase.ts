@@ -1,5 +1,5 @@
 export function withBase(path: string) {
-  if (/^(?:[a-z][a-z0-9+.-]*:|#)/i.test(path)) {
+  if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#|\?)/i.test(path)) {
     return path;
   }
 

@@ -23,6 +23,18 @@ function visitElements(tree, callback) {
   visit(tree);
 }
 
+function visitNodes(tree, callback) {
+  function visit(node) {
+    callback(node);
+
+    if (Array.isArray(node?.children)) {
+      node.children.forEach(visit);
+    }
+  }
+
+  visit(tree);
+}
+
 function rehypeNewTabLinks() {
   return (tree) => {
     visitElements(tree, (node) => {
@@ -42,7 +54,7 @@ function rehypeNewTabLinks() {
 }
 
 function withBasePath(path, base) {
-  if (!path.startsWith("/") || path.startsWith("//") || base === "/") {
+  if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#|\?)/i.test(path) || !path.startsWith("/") || base === "/") {
     return path;
   }
 
@@ -51,6 +63,16 @@ function withBasePath(path, base) {
 
 function rehypeBasePaths(base) {
   return (tree) => {
+    visitNodes(tree, (node) => {
+      if (node?.type !== "raw" || typeof node.value !== "string") {
+        return;
+      }
+
+      node.value = node.value.replace(/\b(href|src)=(["'])(\/(?!\/)[^"']*)\2/giu, (_match, property, quote, value) => {
+        return `${property}=${quote}${withBasePath(value, base)}${quote}`;
+      });
+    });
+
     visitElements(tree, (node) => {
       ["href", "src"].forEach((property) => {
         const value = node.properties?.[property];
@@ -70,10 +92,19 @@ const repository = process.env.GITHUB_REPOSITORY;
 const [owner = "prechtru", repo = "kangas"] = repository?.split("/") ?? [];
 const isUserSiteRepo = repo === `${owner}.github.io`;
 const isGitHubActions = process.env.GITHUB_ACTIONS === "true";
-const defaultSite = "https://www.nunawadingkangas.com.au";
+const defaultSite = "https://www.nunawadingkangas.au";
 const site = process.env.SITE ?? defaultSite;
 const isGitHubPagesSite = site.endsWith(".github.io") || site.includes(".github.io/");
-const base = process.env.BASE_PATH ?? (isGitHubActions && isGitHubPagesSite && !isUserSiteRepo ? `/${repo}` : "/");
+const normalizeBasePath = (basePath) => {
+  if (!basePath || basePath === "/") {
+    return "/";
+  }
+
+  return `/${basePath.replace(/^\/+|\/+$/gu, "")}`;
+};
+const base = normalizeBasePath(
+  process.env.BASE_PATH ?? (isGitHubActions && isGitHubPagesSite && !isUserSiteRepo ? repo : "/")
+);
 
 export default defineConfig({
   site,

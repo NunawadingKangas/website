@@ -21,8 +21,8 @@ Because the Club has prepaid normal team sheet fees, the Teammo process may be s
 Log in through [Teammo](https://app.teammo.com.au/login) to connect to your team or lodge a walkover/forfeit.
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; align-items: start; max-width: 58rem; margin: 1.5rem auto 0;">
-  <img src="../../../img/teammo-getting-started.png" alt="Teammo getting started guide for creating an account, connecting to the Association, and managing walkovers" style="width: 100%; margin: 0;">
-  <img src="../../../img/teammo-help-guide.png" alt="Teammo guide showing how to lodge a forfeit or walkover" style="width: 100%; margin: 0;">
+  <img src="/img/teammo-getting-started.png" alt="Teammo getting started guide for creating an account, connecting to the Association, and managing walkovers" style="width: 100%; margin: 0;">
+  <img src="/img/teammo-help-guide.png" alt="Teammo guide showing how to lodge a forfeit or walkover" style="width: 100%; margin: 0;">
 </div>
 
 ## Walkovers

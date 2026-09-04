@@ -20,9 +20,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    env:
-      SITE: https://nunawadingkangas.github.io/website
-      BASE_PATH: /website
 
     steps:
       - name: Check out repository
@@ -36,6 +33,33 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
+
+      - name: Configure Astro URLs
+        env:
+          BASE_PATH_OVERRIDE: ${{ vars.BASE_PATH }}
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          SITE_OVERRIDE: ${{ vars.SITE }}
+        run: |
+          if [ "$REPOSITORY_NAME" = "$REPOSITORY_OWNER.github.io" ]; then
+            default_site="https://${REPOSITORY_OWNER}.github.io"
+            default_base_path="/"
+          else
+            default_site="https://${REPOSITORY_OWNER}.github.io/${REPOSITORY_NAME}"
+            default_base_path="/${REPOSITORY_NAME}"
+          fi
+
+          if [ -s public/CNAME ]; then
+            custom_domain="$(head -n 1 public/CNAME | tr -d '[:space:]')"
+
+            if [ -n "$custom_domain" ]; then
+              default_site="https://${custom_domain}"
+              default_base_path="/"
+            fi
+          fi
+
+          echo "SITE=${SITE_OVERRIDE:-$default_site}" >> "$GITHUB_ENV"
+          echo "BASE_PATH=${BASE_PATH_OVERRIDE:-$default_base_path}" >> "$GITHUB_ENV"
 
       - name: Install dependencies
         run: npm ci
