@@ -11,11 +11,23 @@ summary: We are part of the Melbourne East Basketball Association (MEBA) and
 section: club
 order: 1
 ---
-Nunawading Kangas Basketball Club is a community based junior club established over 50 years ago. Our players are drawn from Nunawading and the surrounding suburbs. Our aim is to provide an environment for our players to enjoy sport whilst improving their skills, learning about teamwork and respect for other players, coaches and referees. Older players have the opportunity to develop leadership skills through coaching younger teams.
+## The Kangas Way
+
+Since 1974, Nunawading Kangas Basketball Club has been a proud part of our local community, welcoming children of all abilities to discover a love of basketball. For more than five decades, we’ve helped young players take their first steps on court, grow their skills, and represent the Kangas with pride.​
+
+​We believe every child deserves the chance to play, learn, and belong. Our strong ties with local schools reflect our commitment to keeping as many kids on court as possible and ensuring basketball is accessible, inclusive, and fun for all.​
+
+At Kangas, development goes beyond the game. We nurture teamwork, resilience, sharing, and respect—life lessons that shape confident young people both on and off the court. Our coaches are supported to grow their skills and create positive, encouraging environments where players can improve at their own pace and celebrate their progress.​
+
+Through friendships, community spirit, and a shared love of basketball, the Kangas Way continues to bring families together and build a thriving, connected basketball community that stands strong across generations.​
+
+## Our Vision​
+
+To be the community's basketball club of choice; where players of all abilities grow, compete and love representing the Kangas.​
 
 ## Our Mission
 
-To be premier facilitators of participation, development and excellence in basketball.
+We develop players of all abilities to be their best, support and grow our coaches, and create a positive environment where teams learn, improve, and enjoy basketball together.​
 
 ## Our Purpose
 
@@ -32,12 +44,19 @@ To be premier facilitators of participation, development and excellence in baske
 
 To promote the following values:
 
-- Enjoyment of basketball
-- Honesty and Integrity
-- To respect all, regardless of gender, ability, cultural background or religion
-- Understanding
-- Openess and Transparency
-- Teamwork and Co-operation
+- **Respect** - We value respect. We respect the clubs and players that make up our competitions; we respect those that have come before us to pave the way; we respect our community; and we respect all who support our participation in Basketball.​
+
+  **Belong** - We create an environment where everyone feels welcomed, included,  valued, and supported, embracing diversity and ensuring every individual has the opportunity to contribute and belong.​
+
+  **Fair-play** - We celebrate fair play, integrity, and respect in all interactions, encouraging a positive attitude whether in success or challenge.​
+
+  **Teamwork** - We collaborate, support, and communicate effectively, achieving shared goals together while valuing each member’s contribution and building strong, cohesive ​relationships.​
+
+  **Fun** - We prioritise fun, engagement, and passion, ensuring experiences are fulfilling, motivating, and memorable for everyone involved.​
+
+## Our Strategy
+
+following values:
 
 ## Life Members
 
