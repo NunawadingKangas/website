@@ -2,11 +2,11 @@
 title: About the Club
 metaTitle: About the Club | Nunawading Kangas
 metaDescription: We are part of the Melbourne East Basketball Association (MEBA)
-  and have over 800 players (over 90 teams) playing in the Junior Domestic
+  and have over 800 players (over 100 teams) playing in the Junior Domestic
   Competitions.
 eyebrow: Club Info
 summary: We are part of the Melbourne East Basketball Association (MEBA) and
-  have over 800 players (over 90 teams) playing in the Junior Domestic
+  have over 800 players (over 100 teams) playing in the Junior Domestic
   Competitions.
 section: club
 order: 1
