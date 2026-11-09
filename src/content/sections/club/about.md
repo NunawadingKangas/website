@@ -31,14 +31,12 @@ We develop players of all abilities to be their best, support and grow our coach
 
 ## Our Purpose
 
-- To select and provide teams to play competitive basketball with other teams and clubs.
-- To teach basketball skills, tactics and rules to its members.
-- To provide coaching and adequate training facilities for its members.
-- To foster and maintain at all times, the highest level of sportsmanship and fair play.
-- To co-operate with similar clubs to promote and improve the game of basketball.
-- To further the aim of affiliated basketball association(s) to which we belong.
-- To provide and promote a range of social activities amongst its membership.
-- To provide and promote any other sporting activity that shall benefit the community.
+- **Create an Inclusive Basketball Community** - Players, coaches, and families are welcomed into a supportive environment where everyone feels valued, included, and encouraged to participate, learn, and enjoy basketball together.
+- **Develop Healthy and Resilient Kids** - Young players are encouraged to build confidence, resilience, and healthy habits through active participation in basketball, promoting physical fitness, teamwork, and positive attitudes on and off the court.
+- **Balance Elite and Social Basketball** – Players of all skill levels are supported with opportunities for both competition and development, ensuring everyone feels challenged, valued, and included in the club’s basketball community.
+- **Encourage Learning Fun & Friendships** - Junior participants are provided with a safe and enjoyable space to learn, have fun, and build lasting friendships through shared basketball experiences.
+- **Teach Basketball and Teamwork** - Children and youth are taught fundamental basketball skills, teamwork, and respect, developing confidence, coordination, and sportsmanship that extend beyond the game into everyday life.
+- **Grow Basketball Participation** - The wider community is engaged to play, coach, and support basketball, fostering teamwork, connection, and a lifelong love for the sport.
 
 ## Our Values
 
@@ -54,7 +52,7 @@ To promote the following values:
 
 In 2025, the Nunawading Kangas Committee surveyed its members to help shape the future direction of the club and developing a 5-year strategic plan.  The 2026-2030 Strategic Plan helps prioritise new initiatives and ensures we are delivering on our long-term vision as well as short-term mission for our members. 
 
-![image.png](blob:https:/app.pagescms.org/83bc46de-eeea-42a7-ac59-c063e58c5228)
+![image.png](/image.png)
 
 ## Life Members
 
