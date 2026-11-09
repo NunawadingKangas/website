@@ -45,18 +45,16 @@ We develop players of all abilities to be their best, support and grow our coach
 To promote the following values:
 
 - **Respect** - We value respect. We respect the clubs and players that make up our competitions; we respect those that have come before us to pave the way; we respect our community; and we respect all who support our participation in Basketball.​
-
-  **Belong** - We create an environment where everyone feels welcomed, included,  valued, and supported, embracing diversity and ensuring every individual has the opportunity to contribute and belong.​
-
-  **Fair-play** - We celebrate fair play, integrity, and respect in all interactions, encouraging a positive attitude whether in success or challenge.​
-
-  **Teamwork** - We collaborate, support, and communicate effectively, achieving shared goals together while valuing each member’s contribution and building strong, cohesive ​relationships.​
-
-  **Fun** - We prioritise fun, engagement, and passion, ensuring experiences are fulfilling, motivating, and memorable for everyone involved.​
+- **Belong** - We create an environment where everyone feels welcomed, included,  valued, and supported, embracing diversity and ensuring every individual has the opportunity to contribute and belong.​
+- **Fair-play** - We celebrate fair play, integrity, and respect in all interactions, encouraging a positive attitude whether in success or challenge.​
+- **Teamwork** - We collaborate, support, and communicate effectively, achieving shared goals together while valuing each member’s contribution and building strong, cohesive ​relationships.​
+- **Fun** - We prioritise fun, engagement, and passion, ensuring experiences are fulfilling, motivating, and memorable for everyone involved.​
 
 ## Our Strategy
 
-following values:
+In 2025, the Nunawading Kangas Committee surveyed its members to help shape the future direction of the club and developing a 5-year strategic plan.  The 2026-2030 Strategic Plan helps prioritise new initiatives and ensures we are delivering on our long-term vision as well as short-term mission for our members. 
+
+![image.png](blob:https:/app.pagescms.org/83bc46de-eeea-42a7-ac59-c063e58c5228)
 
 ## Life Members
 
