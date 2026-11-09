@@ -15,7 +15,7 @@ Summer Season registration opens at the beginning of Term 3, in preparation for 
 
 ## Age groups
 
-Players would usually play in the appropriate age group based on their dob - view age groups of the season to identify your age group. It's unusual to play out of your age group and you should discuss this with the Age Group Coordinator before you register. Please note that positions in an older grade are subject to availability and if numbers do not allow this, the Club may need to place players in their correct age group.
+Players are placed in teams within the appropriate competition age group based on their dob - view age groups of the season to identify your age group. Age groups are set by the MEBA Competition Manager and any requests to play outside of your age group should be discussed with the Age Group Coordinator before you register. 
 
 ## Team Selection
 
